@@ -1,0 +1,13 @@
+job{
+
+  name = "gcc-periodic"
+
+  type = "periodic"
+
+  label = "gcc_slaves"
+
+  schedule = "@daily"
+
+  shell_cmd = "kts/gcc/gcc_build_test_pipeline.sh"
+
+}
