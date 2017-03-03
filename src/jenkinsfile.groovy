@@ -1,4 +1,4 @@
 #!groovy
 // helo
 //hello again
-freeStyleJob(testing)
+freeStyleJob('testing')
