@@ -1,6 +1,6 @@
 job{
 
-  name = "gcc-periodic2"
+  name = "gcc-periodic"
 
   type = "periodic"
 
