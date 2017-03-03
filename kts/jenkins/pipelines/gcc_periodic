@@ -6,7 +6,7 @@ job{
 
   label = "gcc_slaves"
 
-  schedule = "@daily"
+  schedule = "@monthly"
 
   shell_cmd = "kts/gcc/gcc_build_test_pipeline.sh"
 
