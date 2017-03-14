@@ -12,8 +12,8 @@ def call(body) {
   
   node('master')
   {
-    echo "The config file is: $args"
-    lib.sample_return("this is testing")
+    stage ('stage 1')
+    sh "ls"
     
   }
 }
