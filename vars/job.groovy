@@ -13,7 +13,9 @@ def call(body) {
   node('master')
   {
     stage ('stage 1')
-    sh "ls"
+    {
+      sh "ls"
+    }
     
   }
 }
