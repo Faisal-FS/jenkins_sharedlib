@@ -9,6 +9,10 @@ def call(body) {
 
   // Loading jenkins jenkinsLibrary
   def lib = new utils.Jenkinslibrary()
-  echo "The config file is: $args"
-  lib.sample_return("this is testing")
+  node ('master')
+  {
+    echo "The config file is: $args"
+    lib.sample_return("this is testing")
+    
+  }
 }
