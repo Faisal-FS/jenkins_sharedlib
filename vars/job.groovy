@@ -8,7 +8,7 @@ def call(body) {
   body()
 
   // Loading jenkins jenkinsLibrary
-  def lib = new utils.Jenkinslibrary()
+  def lib = new utils.JenkinsLibrary()
   
   node('master')
   {
