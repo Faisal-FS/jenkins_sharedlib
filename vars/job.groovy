@@ -19,7 +19,7 @@ def call(body) {
         git credentialsId: 'jenkins', url: 'ssh://git@code.xgrid.co:29418/source/ats.git'
     }
     
-    stage ('bootstrap')
+    stage ('Bootstrap')
     {
       echo "bootstrap stage"
     }
