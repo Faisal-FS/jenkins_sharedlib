@@ -15,7 +15,7 @@ def sample_return(String statement)
 def object_to_json(Object data)
 {
     def builder = new groovy.json.JsonBuilder(data)
-    println builder.toString()
+    echo "$builder.toString()"
 }
 
 
