@@ -10,7 +10,7 @@ def call(body) {
   // Loading jenkins jenkinsLibrary
   def lib = new utils.JenkinsLibrary()
   
-  node('gcc-slaves')
+  node('gcc_slaves')
   {
     stage ('stage 1')
     {
