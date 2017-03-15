@@ -21,7 +21,7 @@ def call(body) {
     
     for(emp in args) {
       
-      if (emp.contains('stage')
+      if (emp.contains('stage'))
         {
           echo("$emp")
         }
