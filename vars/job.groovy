@@ -14,8 +14,9 @@ def call(body) {
   {
     stage ('stage 1')
     {
+      sh "mkdir testing"
       sh "ls"
     }
-    archiveArtifacts '*'
+    archiveArtifacts 'testing'
   }
 }
