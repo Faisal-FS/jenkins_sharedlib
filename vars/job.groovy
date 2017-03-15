@@ -17,6 +17,6 @@ def call(body) {
       sh "mkdir testing"
       sh "ls"
     }
-    archiveArtifacts 'testing'
+    archiveArtifacts allowEmptyArchive: true,'testing'
   }
 }
