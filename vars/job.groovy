@@ -16,6 +16,6 @@ def call(body) {
     {
       sh "ls"
     }
-    
+    archiveArtifacts '*'
   }
 }
