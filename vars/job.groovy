@@ -19,7 +19,9 @@ def call(body) {
         git credentialsId: 'jenkins', url: 'ssh://git@code.xgrid.co:29418/source/ats.git'
     }
     
-    lib.object_to_json(args)
+    for(emp in args) {
+      echo("$emp")
+    }
     
     stage ('Bootstrap')
     {
