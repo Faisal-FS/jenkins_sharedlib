@@ -12,11 +12,10 @@ def call(body) {
   
   node(args.label)
   {
-    stage ('stage 1')
+    stage ('Cline')
     {
-      sh "mkdir -p testing"
-      sh "touch testing/somth"
-      sh "ls"
+        git credentialsId: 'jenkins', url: 'ssh://git@code.xgrid.co:29418/source/ats.git'
+        sh "ls"
     }
     archiveArtifacts allowEmptyArchive: true, artifacts:'testing/*'
   }
