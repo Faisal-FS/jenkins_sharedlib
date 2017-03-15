@@ -20,7 +20,11 @@ def call(body) {
     }
     
     for(emp in args) {
-      echo("$emp")
+      
+      if (emp.contains('stage')
+        {
+          echo("$emp")
+        }
     }
     
     stage ('Bootstrap')
