@@ -15,8 +15,9 @@ def call(body) {
     stage ('stage 1')
     {
       sh "mkdir -p testing"
+      sh "touch testing/somth"
       sh "ls"
     }
-    archiveArtifacts allowEmptyArchive: true, artifacts:'testing'
+    archiveArtifacts allowEmptyArchive: true, artifacts:'testing/*'
   }
 }
