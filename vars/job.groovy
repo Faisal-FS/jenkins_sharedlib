@@ -14,7 +14,7 @@ def call(body) {
   {
     stage ('stage 1')
     {
-      sh "mkdir testing"
+      sh "mkdir -p testing"
       sh "ls"
     }
     archiveArtifacts allowEmptyArchive: true,'testing'
