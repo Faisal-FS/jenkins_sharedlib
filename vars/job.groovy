@@ -12,11 +12,43 @@ def call(body) {
   
   node(args.label)
   {
-    stage ('Cline')
+    step([$class: 'WsCleanup'])
+    
+    stage ('Clone')
     {
         git credentialsId: 'jenkins', url: 'ssh://git@code.xgrid.co:29418/source/ats.git'
-        sh "ls"
     }
+    
+    stage ('bootstrap')
+    {
+      echo "bootstrap stage"
+    }
+    
+    stage ('Build-Hadoop')
+    {
+      echo "Build-Hadoop stage"
+    }
+    
+    stage ('Setup-Hadoop')
+    {
+      echo "Setup-Hadoop stage"
+    }
+    
+    stage ('Build-HiBench')
+    {
+      echo "Build-HiBench stage"
+    }
+    
+    stage ('Setup-Hibench')
+    {
+      echo "Setup-Hibench stage"
+    }
+    
+    stage ('Tests')
+    {
+      echo "Testing stage" 
+    }
+    
     archiveArtifacts allowEmptyArchive: true, artifacts:'testing/*'
   }
 }
