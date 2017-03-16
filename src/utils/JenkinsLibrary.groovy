@@ -22,4 +22,12 @@ def countStages(def args)
     }
    return count; 
 }
+
+def create_stages(def count, def args)
+{
+    stage('First')
+    {
+     echo "this is test"   
+    }
+}
 return this;
