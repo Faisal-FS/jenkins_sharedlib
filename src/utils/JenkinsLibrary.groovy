@@ -17,7 +17,7 @@ import java.nio.charset.StandardCharsets
 }
 
 
-@NonCPS def Stages(def a, def args)
+@NonCPS def stages(def a, def args)
 {
    def list = []
    def count = 0  
