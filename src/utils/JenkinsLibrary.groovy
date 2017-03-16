@@ -20,7 +20,7 @@ def create_stages(def args)
     
     for (n in list) {
        
-       def (stage_name, command) = 'n'.split('=')
+       def (stage_name, command) = n.split('=')
         echo ("$stage_name")
     }
     
