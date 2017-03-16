@@ -17,7 +17,6 @@ def countStages(def args)
    return count;
 }
 
-
 @NonCPS 
 def stag(def a, def args)
 {
@@ -36,14 +35,12 @@ def stag(def a, def args)
 @NonCPS 
 def create_stages(def number, def value)
 {   
-   
    def (fullstage, command) = value.split('=')
    def (key, stage_name) = fullstage.split('_') 
   
    stage ("$stage_name")
    {
     echo ("$command")  
-   }
-    
+   } 
 }
 return this;
