@@ -24,7 +24,8 @@ def call(body) {
     String strin = ""
     strin = lib.create_stages(args)
     
-    Eval.me("$strin")
+    echo ("$strin")
+    //Eval.me("$strin")
           
     stage ('Bootstrap')
     {
