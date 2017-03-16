@@ -31,7 +31,6 @@ import java.nio.charset.StandardCharsets
    create_stages(a,list[a])  
 }
 
-@NonCPS
 def create_stages(def number, def value)
 {   
    echo ("$value")
@@ -44,7 +43,6 @@ def create_stages(def number, def value)
    {
     echo "$command"  
    }
-   return 0;
     
 }
 return this;
