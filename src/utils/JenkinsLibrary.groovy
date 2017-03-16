@@ -21,15 +21,15 @@ def create_stages(def args)
     String s1 = ""
     for (def n in list) {
         echo ("$n")
-       //def (stage_name, command) = n.split('=')
+        def (stage_name, command) = n.split('=')
        
        //s1 = "stage ('testing') { echo \"test\" } "
        
        //return s1
-       //stage("$stage_name")
-       //{
-        //echo ("$command")
-       //}
+         stage("$stage_name")
+         {
+          echo ("$command")
+         }
     }
     
 }
