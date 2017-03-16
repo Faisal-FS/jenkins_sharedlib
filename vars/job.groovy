@@ -23,7 +23,7 @@ def call(body) {
     
     for(int a = 0; a<value; a++)
     {
-      lib.Stages(a,args)
+      lib.stages(a,args)
     }
     
     
