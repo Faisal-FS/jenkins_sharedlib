@@ -19,11 +19,10 @@ def call(body) {
         git credentialsId: 'jenkins', url: 'ssh://git@code.xgrid.co:29418/source/ats.git'
     }
     
-    def size = lib.countStages(args)
+    def list = lib.countStages(args)
     
-    echo ("$size")
     
-    lib.create_stages(size,args)
+    lib.create_stages(list)
           
     stage ('Bootstrap')
     {
