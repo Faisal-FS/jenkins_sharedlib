@@ -21,11 +21,18 @@ def call(body) {
     
     //def list = lib.countStages(args)
     
-    String strin = ""
-    strin = lib.create_stages(args)
+    //String strin = ""
     
-    echo ("$strin")
-    Eval.me("$strin")
+    def count = 4
+      
+    for (n in count)
+    {
+      lib.create_stages(args)
+    }
+    
+    
+    //echo ("$strin")
+    //Eval.me("$strin")
           
     stage ('Bootstrap') { echo "bootstrap stage" }
     
