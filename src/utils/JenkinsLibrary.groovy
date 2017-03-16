@@ -14,7 +14,7 @@ def create_stages(def args)
         {
           list.add("$emp")
           count = list.size()
-          echo("$count")
+          //echo("$count")
         }
     }
     
@@ -23,9 +23,9 @@ def create_stages(def args)
         
        def (stage_name, command) = n.split('=')
        
-       s1 = "stage(testing) { echo (\"test\") } "
-       echo ("$stage_name")
-       echo ("$command")
+       s1 = "stage('testing') { echo (\"test\") } "
+       //echo ("$stage_name")
+       //echo ("$command")
        
        return s1
        //stage("$stage_name")
