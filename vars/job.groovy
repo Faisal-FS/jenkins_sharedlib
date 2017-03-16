@@ -25,8 +25,8 @@ def call(body) {
       if (emp.toString().contains('stage'))
         {
           list.add("$emp")
-          
-          echo("$list[0]")
+          def count = list.size()
+          echo("$count")
         }
     }
     
