@@ -23,7 +23,7 @@ def call(body) {
     
     echo ("$size")
     
-    create_stages(size,args)
+    lib.create_stages(size,args)
           
     stage ('Bootstrap')
     {
