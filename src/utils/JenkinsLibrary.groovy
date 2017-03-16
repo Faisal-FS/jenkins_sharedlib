@@ -23,7 +23,7 @@ def create_stages(def args)
         
        def (stage_name, command) = n.split('=')
        
-       s1 = "stage ('testing') { echo (\"test\") } "
+       s1 = "stage ('testing') { echo \"test\" } "
        //echo ("$stage_name")
        //echo ("$command")
        
