@@ -27,7 +27,7 @@ def call(body) {
       
     for (n in count)
     {
-      echo (n)
+      echo ("$n")
       lib.create_stages(args)
     }
     
