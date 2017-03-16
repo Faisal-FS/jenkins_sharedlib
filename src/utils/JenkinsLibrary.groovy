@@ -37,16 +37,13 @@ def stag(def a, def args)
 def create_stages(def number, def value)
 {   
    
-   def (stage_name, command) = value.split('=')
-   def (key,stage) = stage_name.split('_')
-   //echo ("$stage")
-   //echo ("$command")
-   
-   stage ('Bootstrap') { echo "bootstrap stage" }
-   //stage ('123')
-   //{
-    //echo ("$command")  
-   //}
+   def (fullstage, command) = value.split('=')
+   def (key, stage_name) = fullstage.split('_') 
+  
+   stage ("$stage_name")
+   {
+    echo ("$command")  
+   }
     
 }
 return this;
