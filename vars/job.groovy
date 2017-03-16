@@ -21,7 +21,7 @@ def call(body) {
     
     def size = lib.countStages(args)
     
-    echo ("$size)
+    echo ("$size")
           
     stage ('Bootstrap')
     {
