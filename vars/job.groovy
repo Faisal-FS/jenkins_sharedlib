@@ -25,11 +25,11 @@ def call(body) {
     
     def count = 4
       
-    for (n in count)
-    {
-      echo ("$n")
+    //for (n in count)
+    //{
+      //echo ("$n")
       lib.create_stages(args)
-    }
+    //}
     
     
     //echo ("$strin")
