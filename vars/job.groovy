@@ -21,7 +21,7 @@ def call(body) {
     
     def value = lib.countStages(args)
     
-    for(int a = 0; a<count; a++)
+    for(int a = 0; a<value; a++)
     {
       lib.Stages(a,args)
     }
