@@ -19,10 +19,9 @@ def call(body) {
         git credentialsId: 'jenkins', url: 'ssh://git@code.xgrid.co:29418/source/ats.git'
     }
     
-    def list = lib.countStages(args)
+    //def list = lib.countStages(args)
     
-    
-    lib.create_stages(list)
+    lib.create_stages(args)
           
     stage ('Bootstrap')
     {
