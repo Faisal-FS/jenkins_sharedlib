@@ -26,7 +26,9 @@ def create_stages(def args)
        
        stage("$stage_name")
        {
-         sh '$command'  
+         //sh '$command' 
+          
+          sh 'ls'
        }
        
        
