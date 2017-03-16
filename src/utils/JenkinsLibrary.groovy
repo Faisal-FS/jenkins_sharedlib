@@ -36,16 +36,16 @@ def stages(def a, def args)
 @NonCPS 
 def create_stages(def number, def value)
 {   
-   echo ("$value")
+   
    def (stage_name, command) = value.split('=')
    def (key,stage) = stage_name.split('_')
    echo ("$stage")
    echo ("$command")
    
-   stage ('123')
-   {
-    echo ("$command")  
-   }
+   //stage ('123')
+   //{
+   // echo ("$command")  
+   //}
     
 }
 return this;
