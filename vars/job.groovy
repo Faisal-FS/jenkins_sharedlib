@@ -21,6 +21,8 @@ def call(body) {
     
     lib.countStages(args)
     
+    lib.countStages(args)
+    
     stage ('Bootstrap') { echo "bootstrap stage" }
     
     stage ('Build-Hadoop')
