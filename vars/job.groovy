@@ -19,11 +19,11 @@ def call(body) {
         git credentialsId: 'jenkins', url: 'ssh://git@code.xgrid.co:29418/source/ats.git'
     }
     
-    def value = lib.count(args)
+    def value = lib.countStages(args)
     
     for(int a = 0; a<count; a++)
     {
-      lib.countStages(a,args)
+      lib.Stages(a,args)
     }
     
     
