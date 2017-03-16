@@ -33,6 +33,7 @@ def stages(def a, def args)
    create_stages(a,list[a])  
 }
 
+@NonCPS 
 def create_stages(def number, def value)
 {   
    echo ("$value")
