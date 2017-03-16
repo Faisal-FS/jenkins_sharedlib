@@ -5,8 +5,21 @@ import java.nio.charset.StandardCharsets
 @Grab(group='org.yaml', module='snakeyaml', version='1.17')
 import org.yaml.snakeyaml.*
 
-def sample_return(String statement)
+@NonCPS
+def countStages(object args)
 {
-    echo "$statement"
+    def list = []
+    def count = 0 
+    
+    for(emp in args) {
+      
+      if (emp.toString().contains('stage'))
+        {
+          list.add("$emp")
+          count = list.size()
+          echo("$count")
+        }
+    }
+   return count; 
 }
 return this;
