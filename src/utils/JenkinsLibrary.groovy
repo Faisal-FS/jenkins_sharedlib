@@ -23,11 +23,25 @@ def countStages(def args)
    return list; 
 }
 
+@NonCPS
 def create_stages(def list)
 {   
-    stage('First')
-    {
-     echo "this is test"   
+   def list = []
+    def count = 0 
+    
+    for(emp in args) {
+      
+      if (emp.toString().contains('stage'))
+        {
+          list.add("$emp")
+          count = list.size()
+          echo("$count")
+        }
     }
+    
+    for (n in list) {
+        echo ("$n")
+    }
+    
 }
 return this;
