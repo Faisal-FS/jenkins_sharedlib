@@ -2,7 +2,7 @@ package utils;
 
 import java.nio.charset.StandardCharsets
 
-@NonCPS def count(def args)
+@NonCPS def countStages(def args)
 {
    def list = []
    def count = 0  
