@@ -19,17 +19,10 @@ def call(body) {
         git credentialsId: 'jenkins', url: 'ssh://git@code.xgrid.co:29418/source/ats.git'
     }
     
-    def list = []
-    for(emp in args) {
-      
-      if (emp.toString().contains('stage'))
-        {
-          list.add("$emp.toString()")
-          def count = list.size()
-          echo("$count")
-        }
-    }
+    def size = lib.countStages(args)
     
+    echo ("$size)
+          
     stage ('Bootstrap')
     {
       echo "bootstrap stage"
