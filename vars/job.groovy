@@ -26,7 +26,7 @@ def call(body) {
         {
           list.add("$emp")
           
-          echo($list[0])
+          echo("$list[0]")
         }
     }
     
