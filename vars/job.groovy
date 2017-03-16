@@ -21,10 +21,9 @@ def call(body) {
     
     def value = lib.countStages(args)
     
-    for(int a = 0; a<value; a++)
+    for(int iter = 0; iter<value; iter++)
     {
-      echo ("$a")
-      lib.stag(a,args)
+      lib.stag(iter,args)
     }
     
     archiveArtifacts allowEmptyArchive: true, artifacts:'testing/*'
