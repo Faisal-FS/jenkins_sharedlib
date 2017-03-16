@@ -44,7 +44,7 @@ def create_stages(def number, def value)
    
    stage ("$stage")
    {
-    echo "$command"  
+    echo ("$command")  
    }
     
 }
