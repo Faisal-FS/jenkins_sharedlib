@@ -5,37 +5,38 @@ import java.nio.charset.StandardCharsets
 @NonCPS 
 def countStages(def args)
 {
-   def list = []
+  
    def count = 0  
-   for(emp in args) {
-      if (emp.toString().contains('stage'))
-        {
-          list.add("$emp")
-          count = list.size()
-        }
-    }
+   def li = stageList(args)
+   count = li.size()
    return count;
 }
 
-@NonCPS 
-def stag(def a, def args)
+@NonCPS
+def stageList(def args)
 {
    def list = []
-   def count = 0  
+   
    for(emp in args) {
       if (emp.toString().contains('stage'))
         {
           list.add("$emp")
-          count = list.size()
         }
     }
-   create_stages(a,list[a])  
+   return list;
 }
 
 @NonCPS 
-def create_stages(def number, def value)
+def stag(def iter, def args)
+{
+   def li = stageList(args)
+   create_stages(iter,li[iter])  
+}
+
+@NonCPS 
+def create_stages(def number, def valueString)
 {   
-   def (fullstage, command) = value.split('=')
+   def (fullstage, command) = valueString.split('=')
    def (key, stage_name) = fullstage.split('_') 
   
    stage ("$stage_name")
