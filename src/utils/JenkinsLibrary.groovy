@@ -3,7 +3,7 @@ package utils;
 import java.nio.charset.StandardCharsets
 
 @NonCPS
-def create_stages(def list)
+def create_stages(def args)
 {   
    def list = []
     def count = 0 
