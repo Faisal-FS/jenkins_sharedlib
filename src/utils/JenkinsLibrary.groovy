@@ -20,11 +20,11 @@ def countStages(def args)
           echo("$count")
         }
     }
-   return count; 
+   return list; 
 }
 
-def create_stages(def count, def args)
-{
+def create_stages(def list)
+{   
     stage('First')
     {
      echo "this is test"   
