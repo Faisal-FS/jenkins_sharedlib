@@ -20,7 +20,7 @@ def create_stages(def args)
     
     String s1 = ""
     for (def n in list) {
-        echo ("n")
+        echo ("$n")
        //def (stage_name, command) = n.split('=')
        
        //s1 = "stage ('testing') { echo \"test\" } "
