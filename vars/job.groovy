@@ -27,35 +27,6 @@ def call(body) {
       lib.stag(a,args)
     }
     
-    
-    
-    stage ('Bootstrap') { echo "bootstrap stage" }
-    
-    stage ('Build-Hadoop')
-    {
-      echo "Build-Hadoop stage"
-    }
-    
-    stage ('Setup-Hadoop')
-    {
-      echo "Setup-Hadoop stage"
-    }
-    
-    stage ('Build-HiBench')
-    {
-      echo "Build-HiBench stage"
-    }
-    
-    stage ('Setup-Hibench')
-    {
-      echo "Setup-Hibench stage"
-    }
-    
-    stage ('Tests')
-    {
-      echo "Testing stage" 
-    }
-    
     archiveArtifacts allowEmptyArchive: true, artifacts:'testing/*'
   }
 }
