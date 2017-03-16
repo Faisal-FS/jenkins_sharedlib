@@ -6,7 +6,7 @@ import java.nio.charset.StandardCharsets
 import org.yaml.snakeyaml.*
 
 @NonCPS
-def countStages(object args)
+def countStages(def args)
 {
     def list = []
     def count = 0 
