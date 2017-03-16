@@ -23,7 +23,7 @@ def call(body) {
       
       if (emp.toString().contains('stage'))
         {
-          echo("$emp")
+          echo("$emp.stage1_bootstrap")
         }
     }
     
