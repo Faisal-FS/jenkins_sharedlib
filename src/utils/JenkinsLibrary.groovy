@@ -26,7 +26,7 @@ def create_stages(def number, def value)
    echo ("$number")
    echo ("$value")
    
-   stage('testing')
+   stage("$number")
    {
     echo "hello"  
    }
