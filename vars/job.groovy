@@ -28,7 +28,12 @@ def call(body) {
     //for (n in count)
     //{
       //echo ("$n")
+    for (int a = 0; a<count; a++)
+    {
+      echo ("$a")
       lib.create_stages(args)
+    }
+      
     //}
     
     
