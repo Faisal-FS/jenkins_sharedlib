@@ -19,11 +19,14 @@ def call(body) {
         git credentialsId: 'jenkins', url: 'ssh://git@code.xgrid.co:29418/source/ats.git'
     }
     
+    def list = []
     for(emp in args) {
       
       if (emp.toString().contains('stage'))
         {
-          echo("$emp.stage1_bootstrap")
+          list.add("$emp")
+          
+          echo(list)
         }
     }
     
