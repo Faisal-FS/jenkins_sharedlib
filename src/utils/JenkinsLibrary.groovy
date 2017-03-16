@@ -34,29 +34,15 @@ import java.nio.charset.StandardCharsets
 @NonCPS
 def create_stages(def number, def value)
 {   
-   echo ("$number")
-   echo ("$value")
+   def (stage_name, command) = value.split('=')
+   def (key,stage) = stage_name.split('_')
    
-   stage("$number")
+   stage("$stage")
    {
-    echo "hello"  
+    echo "$command"  
    }
    
    return 0;
-    
-    //String s1 = ""
-    //for (def n in list) {
-      //  echo ("$n")
-       // def (stage_name, command) = n.split('=')
-       
-       //s1 = "stage ('testing') { echo \"test\" } "
-       
-       //return s1
-      //   stage("$stage_name")
-       //  {
-        //  echo ("$command")
-        // }
-    //}
     
 }
 return this;
