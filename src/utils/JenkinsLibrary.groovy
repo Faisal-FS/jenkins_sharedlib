@@ -13,11 +13,7 @@ import java.nio.charset.StandardCharsets
           count = list.size()
         }
     }
-   
-   for (int a = 0; a < count ; a++)
-   {
-      create_stages(a,list[a])  
-   }
+   create_stages(a,list[a])  
 }
 
 @NonCPS
@@ -30,6 +26,8 @@ def create_stages(def number, def value)
    {
     echo "hello"  
    }
+   
+   return 0;
     
     //String s1 = ""
     //for (def n in list) {
