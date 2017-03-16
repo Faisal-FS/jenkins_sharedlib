@@ -19,27 +19,8 @@ def call(body) {
         git credentialsId: 'jenkins', url: 'ssh://git@code.xgrid.co:29418/source/ats.git'
     }
     
-    //def list = lib.countStages(args)
+    lib.countStages(args)
     
-    //String strin = ""
-    
-    def count = 4
-      
-    //for (n in count)
-    //{
-      //echo ("$n")
-    for (int a = 0; a<count; a++)
-    {
-      echo ("$a")
-      lib.create_stages(args)
-    }
-      
-    //}
-    
-    
-    //echo ("$strin")
-    //Eval.me("$strin")
-          
     stage ('Bootstrap') { echo "bootstrap stage" }
     
     stage ('Build-Hadoop')
