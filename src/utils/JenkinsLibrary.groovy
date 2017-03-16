@@ -5,7 +5,6 @@ import java.nio.charset.StandardCharsets
 @NonCPS 
 def countStages(def args)
 {
-  
    def count = 0  
    def li = stageList(args)
    count = li.size()
@@ -16,7 +15,6 @@ def countStages(def args)
 def stageList(def args)
 {
    def list = []
-   
    for(emp in args) {
       if (emp.toString().contains('stage'))
         {
@@ -38,7 +36,6 @@ def create_stages(def number, def valueString)
 {   
    def (fullstage, command) = valueString.split('=')
    def (key, stage_name) = fullstage.split('_') 
-  
    stage ("$stage_name")
    {
       echo ("$command")  
