@@ -34,6 +34,7 @@ import java.nio.charset.StandardCharsets
 @NonCPS
 def create_stages(def number, def value)
 {   
+   echo ("$value")
    def (stage_name, command) = value.split('=')
    def (key,stage) = stage_name.split('_')
    
@@ -41,8 +42,6 @@ def create_stages(def number, def value)
    {
     echo "$command"  
    }
-   
-   return 0;
     
 }
 return this;
