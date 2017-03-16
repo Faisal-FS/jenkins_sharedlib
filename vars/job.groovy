@@ -21,7 +21,10 @@ def call(body) {
     
     //def list = lib.countStages(args)
     
-    lib.create_stages(args)
+    def strin = ""
+    strin = lib.create_stages(args)
+    
+    Eval.me($strin)
           
     stage ('Bootstrap')
     {
