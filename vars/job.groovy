@@ -25,7 +25,7 @@ def call(body) {
     strin = lib.create_stages(args)
     
     echo ("$strin")
-    //Eval.me("$strin")
+    Eval.me("$strin")
           
     stage ('Bootstrap') { echo "bootstrap stage" }
     
