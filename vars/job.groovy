@@ -23,6 +23,7 @@ def call(body) {
     
     for(int a = 0; a<value; a++)
     {
+      echo ("$a")
       lib.stages(a,args)
     }
     
