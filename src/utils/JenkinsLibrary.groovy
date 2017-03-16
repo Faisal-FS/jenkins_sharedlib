@@ -2,7 +2,22 @@ package utils;
 
 import java.nio.charset.StandardCharsets
 
-@NonCPS def countStages(def args)
+@NonCPS def count(def args)
+{
+   def list = []
+   def count = 0  
+   for(emp in args) {
+      if (emp.toString().contains('stage'))
+        {
+          list.add("$emp")
+          count = list.size()
+        }
+    }
+   return count;
+}
+
+
+@NonCPS def Stages(def args)
 {
    def list = []
    def count = 0  
