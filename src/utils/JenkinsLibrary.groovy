@@ -42,9 +42,10 @@ def create_stages(def number, def value)
    echo ("$stage")
    echo ("$command")
    
+   stage ('Bootstrap') { echo "bootstrap stage" }
    //stage ('123')
    //{
-   // echo ("$command")  
+    //echo ("$command")  
    //}
     
 }
