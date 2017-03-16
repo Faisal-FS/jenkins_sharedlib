@@ -25,6 +25,11 @@ def create_stages(def number, def value)
 {   
    echo ("$number")
    echo ("$value")
+   
+   stage('testing')
+   {
+    echo "hello"  
+   }
     
     //String s1 = ""
     //for (def n in list) {
