@@ -43,7 +43,7 @@ def create_stages(def number, def valueString)
       //   sh returnStatus: true, script: 'echo $WORKSPACE'
       //}
       
-      echo ('$command')
+      echo ("$command")
       
       //sh " echo $WORKSPACE"
    } 
