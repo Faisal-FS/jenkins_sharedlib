@@ -28,21 +28,22 @@ def stageList(def args)
 def stag(def iter, def args)
 {
    def li = stageList(args)
-   def cmd = li[iter].toString()
-   create_stages(iter,cmd)  
+   def cmd = li[iter]
+   def (fullstage, command) = cmd.split('=')
+   def (key, stage_name) = fullstage.split('_') 
+   create_stages(stage_name,command)  
 }
 
 //@NonCPS 
-def create_stages(def number, def valueString)
+def create_stages(def name, def command)
 //def create_stages()
 {   
-   def (fullstage, command) = valueString.split('=')
-   //def (key, stage_name) = fullstage.split('_') 
+
    stage ("$number")
    {
       
       echo "$command"
-      echo "$valueString"
+      //echo "$valueString"
       //sh "$"
      
    } 
