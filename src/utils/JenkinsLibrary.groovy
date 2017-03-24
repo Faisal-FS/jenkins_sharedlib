@@ -31,12 +31,13 @@ def stag(def iter, def args)
    create_stages(iter,li[iter])  
 }
 
-@NonCPS 
-def create_stages(def number, def valueString="hello")
+//@NonCPS 
+//def create_stages(def number, def valueString="hello")
+def create_stages()
 {   
    //def (fullstage, command) = valueString.split('=')
    //def (key, stage_name) = fullstage.split('_') 
-   stage ("$number")
+   stage ("1")
    {
       sh "ls"
       //   sh 'ls'
