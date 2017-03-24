@@ -28,7 +28,8 @@ def stageList(def args)
 def stag(def iter, def args)
 {
    def li = stageList(args)
-   create_stages(iter,"123")  
+   def cmd = li[iter].toString()
+   create_stages(iter,cmd)  
 }
 
 //@NonCPS 
