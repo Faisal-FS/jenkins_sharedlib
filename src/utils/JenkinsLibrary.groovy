@@ -38,8 +38,13 @@ def create_stages(def number, def valueString)
    def (key, stage_name) = fullstage.split('_') 
    stage ("$stage_name")
    {
-      echo ("$command")
-      sh returnStatus: true, script: 'echo $WORKSPACE; exit 1'
+      
+      timeout(time: 5, unit: 'SECONDS') {
+         sh returnStatus: true, script: 'echo $WORKSPACE'
+      }
+
+      //echo ("$command")
+      
       //sh " echo $WORKSPACE"
    } 
 }
