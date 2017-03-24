@@ -36,7 +36,7 @@ def create_stages(def number, def valueString="hello")
 {   
    //def (fullstage, command) = valueString.split('=')
    //def (key, stage_name) = fullstage.split('_') 
-   stage ("$stage_name")
+   stage ("$number")
    {
       echo "hello"
       //   sh 'ls'
