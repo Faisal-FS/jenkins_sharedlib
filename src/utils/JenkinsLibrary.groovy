@@ -28,16 +28,16 @@ def stageList(def args)
 def stag(def iter, def args)
 {
    def li = stageList(args)
-   create_stages()  
+   create_stages(iter,"123")  
 }
 
 //@NonCPS 
-//def create_stages(def number, def valueString="hello")
-def create_stages()
+def create_stages(def number, def valueString)
+//def create_stages()
 {   
    //def (fullstage, command) = valueString.split('=')
    //def (key, stage_name) = fullstage.split('_') 
-   stage ("1")
+   stage ("$number")
    {
       sh "ls"
       //   sh 'ls'
