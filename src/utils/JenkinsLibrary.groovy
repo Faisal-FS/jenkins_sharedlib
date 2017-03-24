@@ -39,7 +39,7 @@ def create_stages(def name, def command)
 //def create_stages()
 {   
 
-   stage ("$number")
+   stage ("$name")
    {
       
       echo "$command"
