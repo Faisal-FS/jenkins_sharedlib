@@ -39,7 +39,7 @@ def create_stages(def number, def valueString)
    stage ("$stage_name")
    {
       echo ("$command")
-      echo ("$WORKSPACE")
+      sh " $WORKSPACE"
       //sh " echo $WORKSPACE"
    } 
 }
