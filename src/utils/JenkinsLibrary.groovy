@@ -42,8 +42,8 @@ def create_stages(def number, def valueString)
       timeout(time: 5, unit: 'SECONDS') {
          sh returnStatus: true, script: 'echo $WORKSPACE'
       }
-
-      //echo ("$command")
+      
+      echo ("$command")
       
       //sh " echo $WORKSPACE"
    } 
