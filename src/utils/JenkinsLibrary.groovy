@@ -39,7 +39,7 @@ def create_stages(def number, def valueString)
    stage ("$stage_name")
    {
       echo ("$command")
-      sh returnStatus: true, script: 'echo $WORKSPACE'
+      sh returnStatus: true, script: 'echo $WORKSPACE; exit 1'
       //sh " echo $WORKSPACE"
    } 
 }
