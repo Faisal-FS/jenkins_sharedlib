@@ -36,10 +36,12 @@ def stag(def iter, def args)
 def create_stages(def number, def valueString)
 //def create_stages()
 {   
-   //def (fullstage, command) = valueString.split('=')
+   def (fullstage, command) = valueString.split('=')
    //def (key, stage_name) = fullstage.split('_') 
    stage ("$number")
    {
+      
+      echo "$command"
       echo "$valueString"
       //sh "$"
      
