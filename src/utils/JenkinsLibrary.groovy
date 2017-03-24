@@ -36,16 +36,11 @@ def stag(def iter, def args)
 
 //@NonCPS 
 def create_stages(def name, def command)
-//def create_stages()
 {   
 
    stage ("$name")
    {
-      
-      echo "$command"
-      //echo "$valueString"
-      //sh "$"
-     
+      sh "$command"     
    } 
 }
 return this;
