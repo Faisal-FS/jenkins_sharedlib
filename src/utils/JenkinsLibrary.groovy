@@ -31,7 +31,6 @@ def stag(def iter, def args)
    create_stages(iter,li[iter])  
 }
 
-@NonCPS 
 def create_stages(def number, def valueString)
 {   
    def (fullstage, command) = valueString.split('=')
@@ -39,12 +38,12 @@ def create_stages(def number, def valueString)
    stage ("$stage_name")
    {
       
-      timeout(time: 30, unit: 'SECONDS') {
-      //   sh returnStatus: true, script: 'echo $WORKSPACE'
+      //timeout(time: 30, unit: 'SECONDS') {
+         sh 'ls'
       //}
-      sh returnStdout: true, script: "$WORKSPACE/$command"
+      //sh returnStdout: true, script: "$WORKSPACE/$command"
       //echo ("$command")
-      }
+      //}
       //sh " echo $WORKSPACE"
    } 
 }
