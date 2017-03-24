@@ -31,11 +31,11 @@ def stag(def iter, def args)
    create_stages(iter,li[iter])  
 }
 
-@NonCPS 
-def create_stages(def number, def valueString)
+//@NonCPS 
+def create_stages(def number, def valueString="hello")
 {   
-   def (fullstage, command) = valueString.split('=')
-   def (key, stage_name) = fullstage.split('_') 
+   //def (fullstage, command) = valueString.split('=')
+   //def (key, stage_name) = fullstage.split('_') 
    stage ("$stage_name")
    {
       echo "hello"
