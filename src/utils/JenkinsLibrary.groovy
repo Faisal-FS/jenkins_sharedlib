@@ -31,6 +31,7 @@ def stag(def iter, def args)
    create_stages(iter,li[iter])  
 }
 
+@NonCPS 
 def create_stages(def number, def valueString)
 {   
    def (fullstage, command) = valueString.split('=')
