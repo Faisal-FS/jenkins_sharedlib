@@ -38,8 +38,7 @@ def create_stages(def number, def valueString)
    def (key, stage_name) = fullstage.split('_') 
    stage ("$stage_name")
    {
-      sh " echo $WORKSPACE"
-      echo ("$command")  
+      sh "echo $command; $command"
    } 
 }
 return this;
