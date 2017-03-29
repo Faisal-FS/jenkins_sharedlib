@@ -12,11 +12,11 @@ def call(body) {
   
   node(args.label)
   {
-    //step([$class: 'WsCleanup'])
+    step([$class: 'WsCleanup'])
     
     stage ('Clone')
     {
-        //git credentialsId: 'jenkins', url: 'ssh://git@172.19.0.77:29418/source/ats.git'
+        git credentialsId: 'jenkins', url: 'ssh://git@172.19.0.77:29418/source/ats.git'
     }
     
     def value = lib.countStages(args)
