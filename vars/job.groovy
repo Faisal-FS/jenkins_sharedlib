@@ -16,7 +16,7 @@ def call(body) {
     
     stage ('Clone')
     {
-        git credentialsId: 'jenkins', url: 'ssh://git@code.xgrid.co:29418/source/ats.git'
+        //git credentialsId: 'jenkins', url: 'ssh://git@code.xgrid.co:29418/source/ats.git'
     }
     
     def value = lib.countStages(args)
@@ -26,6 +26,6 @@ def call(body) {
       lib.stag(iter,args)
     }
     
-    archiveArtifacts allowEmptyArchive: true, artifacts:'testing/*'
+    archiveArtifacts allowEmptyArchive: true, artifacts:'args.artifacts'
   }
 }
