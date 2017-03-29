@@ -26,6 +26,6 @@ def call(body) {
       lib.stag(iter,args)
     }
     
-    archiveArtifacts allowEmptyArchive: true, artifacts:'args.artifacts'
+    archiveArtifacts allowEmptyArchive: true, artifacts: args.artifacts
   }
 }
