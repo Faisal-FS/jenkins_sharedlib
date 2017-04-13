@@ -1,7 +1,7 @@
 #!groovy
 
-def test = build.getEnvironment(listener).get('test')
-println test
+//def test = build.getEnvironment(listener).get('test')
+println env.test
 
 def alfred_list = readFileFromWorkspace('alfred_enabled.list')
 String[] split_file = alfred_list.split(System.getProperty("line.separator"));
