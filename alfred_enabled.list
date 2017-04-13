@@ -1,1 +1,4 @@
 ats master ssh://git@code.xgrid.co:29418/source/ats.git alij@xgrid.co 
+ats stable_1_0 ssh://git@code.xgrid.co:29418/source/ats.git alij@xgrid.co 
+kts master ssh://git@code.xgrid.co:29418/source/kts.git ahsan@xgrid.co 
+
