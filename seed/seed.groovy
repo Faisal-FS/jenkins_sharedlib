@@ -18,4 +18,4 @@ for (def line:split_file)
   branch_map[repo] = [branch]
 }
 
-println branch_map
+println branch_map['ats']
