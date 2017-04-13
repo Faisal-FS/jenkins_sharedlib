@@ -19,6 +19,7 @@ for ( project in branch_map.keySet() ) {
         env('PROJECT', project)
         env('PROJECTURL', "ssh://git@code.xgrid.co:29418/source/${project}.git")
         env('BRANCH', branch_map[project])
+      }
       scm {
             git {
                 remote {
