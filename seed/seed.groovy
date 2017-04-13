@@ -1,9 +1,5 @@
 #!groovy
 
-//def test = build.getEnvironment(listener).get('test')
-//def env = System.getenv()
-println TESTING
-
 def alfred_list = readFileFromWorkspace('alfred_enabled.list')
 String[] split_file = alfred_list.split(System.getProperty("line.separator"));
 
@@ -19,14 +15,18 @@ for (def line:split_file)
 for ( project in branch_map.keySet() ) {
     freeStyleJob("${project}-seedjob") {
       label('master')
+      environmentVariables {
+        env('PROJECT', project)
+        env('PROJECTURL', "ssh://git@code.xgrid.co:29418/source/${project}.git")
+        env('BRANCH', branch_map[project])
       scm {
             git {
                 remote {
                     name(project)
                     credentials('jenkins')
-                    url("ssh://git@code.xgrid.co:29418/source/${project}.git")
+                    url("ssh://git@code.xgrid.co:29418/source/alfred.git")
                 }
-                branch (branch_map[project])
+                branch ('master')
             }
         }
         steps {
