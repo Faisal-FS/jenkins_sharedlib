@@ -8,11 +8,14 @@
 def alfred_list = readFileFromWorkspace('alfred_enabled.list')
 String[] split_file = alfred_list.split(System.getProperty("line.separator"));
 
+def branch_map = [:]
 for (def line:split_file)
 {
   String[] line_split = line.split(" ")
   repourl = line_split.getAt(2)
   repo = line_split.getAt(0)
-  println repourl
-  println repo
+  branch = line_split.getAt(1)
+  branch_map[repo] = [branch]
 }
+
+println branch_map
