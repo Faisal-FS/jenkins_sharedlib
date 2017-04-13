@@ -37,11 +37,11 @@ new File("$WORKSPACE/ats/jenkins/pipelines").eachFile() { file->
               label(config.job.label)
                 scm {
                     git {
-                      branch('master')
+                      branch(BRANCH)
                       remote
                       {
                          credentials('jenkins')
-                         url(repoUrl)
+                         url(PROJECTURL)
                       }
 
                       }
