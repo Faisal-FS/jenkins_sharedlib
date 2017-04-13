@@ -27,7 +27,6 @@ for ( project in branch_map.keySet() ) {
       scm {
             git {
                 remote {
-                    name(project)
                     credentials('jenkins')
                     url("ssh://git@code.xgrid.co:29418/source/alfred.git")
                 }
