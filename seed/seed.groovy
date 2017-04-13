@@ -1,8 +1,8 @@
 #!groovy
 
 //def test = build.getEnvironment(listener).get('test')
-def env = System.getenv()
-println env
+//def env = System.getenv()
+println GIT_URL
 
 def alfred_list = readFileFromWorkspace('alfred_enabled.list')
 String[] split_file = alfred_list.split(System.getProperty("line.separator"));
