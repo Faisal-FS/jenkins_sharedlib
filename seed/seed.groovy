@@ -25,8 +25,7 @@ for ( project in branch_map.keySet() ) {
             git {
                 remote {
                     name(project)
-                    def repoUrl = "ssh://git@code.xgrid.co:29418/source/$project.git"
-                    url(repoUrl)
+                    url("ssh://git@code.xgrid.co:29418/source/$project.git")
                 }
                 branch (branch_map[project])
             }
