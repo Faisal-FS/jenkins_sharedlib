@@ -11,7 +11,7 @@ String[] split_file = alfred_list.split(System.getProperty("line.separator"));
 for (def line:split_file)
 {
   String[] line_split = line.split(" ")
-  repourl = line_split.getAt(1)
+  repourl = line_split.getAt(2)
   repo = line_split.getAt(0)
   println repourl
   println repo
