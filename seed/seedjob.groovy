@@ -11,3 +11,7 @@ def clone = "git clone $PROJECTURL".execute(null, new File(WORKSPACE + "/"))
 clone.consumeProcessOutput(sout, serr)
 clone.waitFor()
 
+folder("$PROJECT") {
+    displayName("$PROJECT")
+    description("pipeplines for $PROJECT")
+}
