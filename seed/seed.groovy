@@ -2,7 +2,7 @@
 
 //def test = build.getEnvironment(listener).get('test')
 //def env = System.getenv()
-println TESING
+println TESTING
 
 def alfred_list = readFileFromWorkspace('alfred_enabled.list')
 String[] split_file = alfred_list.split(System.getProperty("line.separator"));
