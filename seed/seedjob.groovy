@@ -16,7 +16,7 @@ folder("$PROJECT") {
     description("pipeplines for $PROJECT")
 }
 
-new File("$WORKSPACE/ats/jenkins/pipelines").eachFile() { file->
+new File("$projectRoot/jenkins/pipelines").eachFile() { file->
   println "Jenkins File Text:"
   println file.text
 
