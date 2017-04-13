@@ -44,7 +44,7 @@ for ( project in branch_map.keySet() )
         {
             dsl
             {
-                external('groovy_scripts/template_seedjob.groovy')
+                external('seed/template_seedjob.groovy')
             }
         }
     }
