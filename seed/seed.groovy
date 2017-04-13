@@ -1,7 +1,7 @@
 #!groovy
 
 // Clone Project, according to Gerrit Trigger
-//def repoUrl = "$GERRIT_SCHEME://$GERRIT_HOST:$GERRIT_PORT/$GERRIT_PROJECT"
+def repoUrl = "ssh://git@code.xgrid.co:29418/source/$project.git"
 //def projectRoot = WORKSPACE
 
 // Reading through the ci_enablied.list
@@ -19,3 +19,28 @@ for (def line:split_file)
 }
 
 println branch_map['ats']
+
+for ( project in branch_map.keySet() ) {
+    freeStyleJob("${project}-seed-job") {
+       
+        label("master")
+        // Adding the Source code managment
+        scm {
+            git {
+                remote {
+                    name(project)
+                    url(repoUrl)
+                }
+                branch (branch_map[project])
+            }
+        }
+
+        // Adding dsl seed job
+        steps {
+            dsl{
+                external('seed/seedjob.groovy')
+                removeAction('DELETE')
+            }
+        }
+    }
+}
