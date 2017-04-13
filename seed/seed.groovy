@@ -1,9 +1,5 @@
 #!groovy
 
-// Clone Project, according to Gerrit Trigger
-def repoUrl = "ssh://git@code.xgrid.co:29418/source/$project.git"
-//def projectRoot = WORKSPACE
-
 // Reading through the ci_enablied.list
 def alfred_list = readFileFromWorkspace('alfred_enabled.list')
 String[] split_file = alfred_list.split(System.getProperty("line.separator"));
@@ -29,6 +25,7 @@ for ( project in branch_map.keySet() ) {
             git {
                 remote {
                     name(project)
+                    def repoUrl = "ssh://git@code.xgrid.co:29418/source/$project.git"
                     url(repoUrl)
                 }
                 branch (branch_map[project])
