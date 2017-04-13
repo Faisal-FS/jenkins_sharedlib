@@ -7,3 +7,5 @@
 // Reading through the ci_enablied.list
 def alfred_list = readFileFromWorkspace('alfred_enabled.list')
 String[] split_file = alfred_list.split(System.getProperty("line.separator"));
+
+println split_file
