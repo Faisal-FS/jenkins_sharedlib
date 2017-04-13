@@ -7,6 +7,7 @@ def sout = new StringBuilder(), serr= new StringBuilder()
 
 // Clone Project, according to Gerrit Trigger
 def projectRoot = WORKSPACE + "/$PROJECT/"
+println projectRoot
 def clone = "git clone $PROJECTURL".execute(null, new File(WORKSPACE + "/"))
 clone.consumeProcessOutput(sout, serr)
 clone.waitFor()
