@@ -9,7 +9,7 @@ for (def line:split_file)
   String[] line_split = line.split(" ")
   repo = line_split.getAt(0)
   branch = line_split.getAt(1)
-  branch_map[repo] = [branch]
+  branch_map[repo] = branch
 }
 
 for ( project in branch_map.keySet() ) {
