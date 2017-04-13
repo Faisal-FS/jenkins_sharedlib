@@ -8,4 +8,11 @@
 def alfred_list = readFileFromWorkspace('alfred_enabled.list')
 String[] split_file = alfred_list.split(System.getProperty("line.separator"));
 
-println split_file
+for (def line:split_file)
+{
+  String[] line_split = line.split(" ")
+  repourl = line_split.getAt(1)
+  repo = line_split.getAt(0)
+  println repourl
+  println repo
+}
