@@ -11,7 +11,6 @@ def projectRoot = WORKSPACE + "/$PROJECT/"
 def clone = "git clone $PROJECTURL".execute(null, new File(WORKSPACE + "/"))
 clone.consumeProcessOutput(sout, serr)
 clone.waitFor()
-
 println "out> $sout err> $serr"
 
 folder("$PROJECT") {
@@ -19,3 +18,49 @@ folder("$PROJECT") {
     description("pipeplines for $PROJECT")
 }
 
+new File("$WORKSPACE/ats/jenkins/pipelines").eachFile() { file->
+  println "Jenkins File Text:"
+  println file.text
+
+  def config = new ConfigSlurper().parse(file.text)
+
+  println(config.job.name)
+
+ pipelineJob("$PROJECT/$config.job.name") {
+ logRotator(30,-1,-1,-1)
+    if( config.job.pipeline_type == "periodic" )
+    {
+        definition
+        {
+            cpsScm
+            {
+              label(config.job.label)
+                scm {
+                    git {
+                      branch('master')
+                      remote
+                      {
+                         credentials('jenkins')
+                         url(repoUrl)
+                      }
+
+                      }
+                    }
+                    // Adding Jenkinsfile script path to be used by the new job
+                scriptPath("jenkins/pipelines/" + org.apache.commons.io.FilenameUtils.getBaseName(file.name))
+            }
+        }
+        triggers
+        {
+            cron(config.job.schedule)
+        }
+
+        publishers{
+          wsCleanup()
+          archiveArtifacts {
+            pattern(config.job.artifacts)
+          }
+      }
+    }
+}
+}
