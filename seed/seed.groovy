@@ -25,7 +25,8 @@ for ( project in branch_map.keySet() ) {
             git {
                 remote {
                     name(project)
-                  url("ssh://git@code.xgrid.co:29418/source/${project}.git")
+                    credentials('jenkins')
+                    url("ssh://git@code.xgrid.co:29418/source/${project}.git")
                 }
                 branch (branch_map[project])
             }
