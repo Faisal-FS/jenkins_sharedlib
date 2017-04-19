@@ -20,12 +20,13 @@ new File("$projectRoot/alfred/pipelines").eachFile()
     println "Pipeline config:"
     println file.text
     def config = new ConfigSlurper().parse(file.text)
+    
 
     // Creating workload based folders inside the repo folder
-    folder("$PROJECT/$config.workload")
+    folder("$PROJECT/$config.job.workload")
     {
-        displayName("$config.workload")
-        description("Pipeplines for $config.workload")
+        displayName("$config.job.workload")
+        description("Pipeplines for $config.job.workload")
     }
 
     // Creating Pipeline
