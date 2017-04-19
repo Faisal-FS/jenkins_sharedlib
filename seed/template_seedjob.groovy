@@ -15,7 +15,7 @@ folder("$PROJECT")
     description("pipeplines for $PROJECT")
 }
 
-new File("$projectRoot/jenkins/pipelines").eachFile()
+new File("$projectRoot/alfred/pipelines").eachFile()
 {   file->
     println "Pipeline config:"
     println file.text
@@ -43,7 +43,7 @@ new File("$projectRoot/jenkins/pipelines").eachFile()
                             }
                         }
                     }
-                    scriptPath("jenkins/pipelines/" + org.apache.commons.io.FilenameUtils.getBaseName(file.name))
+                    scriptPath("alfred/pipelines/" + org.apache.commons.io.FilenameUtils.getBaseName(file.name))
                 }
             }
             triggers
