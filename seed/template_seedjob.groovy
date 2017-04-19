@@ -21,7 +21,15 @@ new File("$projectRoot/alfred/pipelines").eachFile()
     println file.text
     def config = new ConfigSlurper().parse(file.text)
 
-    pipelineJob("$PROJECT/$config.job.name")
+    // Creating workload based folders inside the repo folder
+    folder("$PROJECT/$config.workload")
+    {
+        displayName("$config.workload")
+        description("Pipeplines for $config.workload")
+    }
+
+    // Creating Pipeline
+    pipelineJob("$PROJECT/$config.workload/$config.job.name")
     {
         logRotator(30,-1,-1,-1)
         if( config.job.pipeline_type == "periodic" )
