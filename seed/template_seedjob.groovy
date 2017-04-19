@@ -30,7 +30,7 @@ new File("$projectRoot/alfred/pipelines").eachFile()
     }
 
     // Creating Pipeline
-    pipelineJob("$PROJECT/$config.workload/$config.job.name")
+    pipelineJob("$PROJECT/$config.job.workload/$config.job.name")
     {
         logRotator(30,-1,-1,-1)
         if( config.job.pipeline_type == "periodic" )
