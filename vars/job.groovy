@@ -12,7 +12,7 @@ def call(body) {
   
   node ('master')
   {
-   echo "$env.GIT_URL" 
+   echo "$SVN_URL" 
   }
   
   
