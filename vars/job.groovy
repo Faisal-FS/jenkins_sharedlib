@@ -12,7 +12,7 @@ def call(body) {
   
   node ('master')
   {
-   echo "$env.GIT_HOME" 
+   echo "$env.GIT_URL" 
   }
   
   
