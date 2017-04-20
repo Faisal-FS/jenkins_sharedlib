@@ -9,11 +9,13 @@ def call(body) {
 
   // Loading jenkins jenkinsLibrary
   def lib = new utils.JenkinsLibrary()
-  def env = System.getenv()
   
-  print $GIT_HOME
+  node ('master')
+  {
+   echo "hello" 
+  }
   
-  withEnv(['PROJECT=GIT_REPO']) {
+  
     
     node(args.label)
     {
@@ -33,5 +35,5 @@ def call(body) {
 
       archiveArtifacts allowEmptyArchive: true, artifacts: args.artifacts
     }
-  }
+  
 }
