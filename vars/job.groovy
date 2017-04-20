@@ -7,23 +7,17 @@ def call(body) {
   body.delegate = args
   body()
   
-  echo "$test"
+  //echo "$test"
   
   // Loading jenkins jenkinsLibrary
   def lib = new utils.JenkinsLibrary()
   //print env.CHANGE_ID
-  node ('master')
-  {
-    sh 'env > env.txt'
-    readFile('env.txt').split("\r?\n").each {
-        println it
-    }
-  }
   
   
     
     node(args.label)
     {
+      echo "$test"
       step([$class: 'WsCleanup'])
 
       stage ('Clone')
