@@ -9,23 +9,29 @@ def call(body) {
 
   // Loading jenkins jenkinsLibrary
   def lib = new utils.JenkinsLibrary()
+  def env = System.getenv()
   
-  node(args.label)
-  {
-    step([$class: 'WsCleanup'])
+  println env
+  
+  withEnv(['PROJECT=GIT_REPO']) {
     
-    stage ('Clone')
+    node(args.label)
     {
-        git credentialsId: 'jenkins', url: 'ssh://git@172.19.0.77:29418/source/ats.git'
+      step([$class: 'WsCleanup'])
+
+      stage ('Clone')
+      {
+          git credentialsId: 'jenkins', url: 'ssh://git@172.19.0.77:29418/source/ats.git'
+      }
+
+      def value = lib.countStages(args)
+
+      for(int iter = 0; iter<value; iter++)
+      {
+        lib.stag(iter,args)
+      }
+
+      archiveArtifacts allowEmptyArchive: true, artifacts: args.artifacts
     }
-    
-    def value = lib.countStages(args)
-    
-    for(int iter = 0; iter<value; iter++)
-    {
-      lib.stag(iter,args)
-    }
-    
-    archiveArtifacts allowEmptyArchive: true, artifacts: args.artifacts
   }
 }
