@@ -14,8 +14,10 @@ def call(body) {
   //print env.CHANGE_ID
   node ('master')
   {
-    def env = System.getenv()
-    print env
+    sh 'env > env.txt'
+    readFile('env.txt').split("\r?\n").each {
+        println it
+    }
   }
   
   
