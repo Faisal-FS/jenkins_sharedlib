@@ -11,7 +11,7 @@ def call(body) {
   def lib = new utils.JenkinsLibrary()
   def env = System.getenv()
   
-  printenv
+  sh 'printenv'
   
   withEnv(['PROJECT=GIT_REPO']) {
     
