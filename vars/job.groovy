@@ -12,7 +12,7 @@ def call(body) {
   
   node ('master')
   {
-   echo "hello" 
+   echo "$GIT_HOME" 
   }
   
   
