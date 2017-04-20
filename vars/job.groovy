@@ -14,7 +14,7 @@ def call(body) {
   //print env.CHANGE_ID
   node ('master')
   {
-   echo "$GIT_URL" 
+   sh 'printenv' 
   }
   
   
