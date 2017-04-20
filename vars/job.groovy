@@ -6,7 +6,9 @@ def call(body) {
   body.resolveStrategy = Closure.DELEGATE_FIRST
   body.delegate = args
   body()
-
+  
+  def env = System.getenv()
+  print env
   // Loading jenkins jenkinsLibrary
   def lib = new utils.JenkinsLibrary()
   //print env.CHANGE_ID
