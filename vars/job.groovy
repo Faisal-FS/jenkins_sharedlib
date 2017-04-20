@@ -13,11 +13,13 @@ def call(body) {
   def lib = new utils.JenkinsLibrary()
   //print env.CHANGE_ID
   
-  print agrs.project
+  
   
     
     node(args.label)
     {
+      
+      echo "$agrs.project"
       echo "$test"
       step([$class: 'WsCleanup'])
 
