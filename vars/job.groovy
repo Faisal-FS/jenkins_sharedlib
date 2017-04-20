@@ -7,7 +7,7 @@ def call(body) {
   body.delegate = args
   body()
   
-  echo "$NODE_NAME"
+  echo "$BUILD_ID"
   
   // Loading jenkins jenkinsLibrary
   def lib = new utils.JenkinsLibrary()
