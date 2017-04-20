@@ -12,7 +12,7 @@ def call(body) {
   
   node ('master')
   {
-   echo "$SVN_URL" 
+   echo "$env.SVN_URL" 
   }
   
   
