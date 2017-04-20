@@ -9,7 +9,7 @@ def call(body) {
 
   // Loading jenkins jenkinsLibrary
   def lib = new utils.JenkinsLibrary()
-  
+  print env.CHANGE_ID
   node ('master')
   {
    echo "$GIT_COMMIT" 
