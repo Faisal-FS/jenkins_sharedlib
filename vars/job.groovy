@@ -12,7 +12,7 @@ def call(body) {
   //print env.CHANGE_ID
   node ('master')
   {
-   echo "$CHANGE_ID" 
+   echo "$JOB_NAME" 
   }
   
   
