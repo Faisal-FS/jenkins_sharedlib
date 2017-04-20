@@ -14,7 +14,7 @@ def call(body) {
   //print env.CHANGE_ID
   node ('master')
   {
-   sh 'printenv' 
+    sh 'echo $WORKSPACE' 
   }
   
   
