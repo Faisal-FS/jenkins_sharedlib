@@ -7,7 +7,7 @@ def call(body) {
   body.delegate = args
   body()
   
-  echo "$BUILD_ID"
+  echo "$test"
   
   // Loading jenkins jenkinsLibrary
   def lib = new utils.JenkinsLibrary()
