@@ -11,11 +11,7 @@ def call(body) {
   def lib = new utils.JenkinsLibrary()
   def env = System.getenv()
   
-  node ('master')
-  {
-    
-    sh 'echo $GIT_HOME'
-  }
+  print $GIT_HOME
   
   withEnv(['PROJECT=GIT_REPO']) {
     
