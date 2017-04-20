@@ -7,20 +7,15 @@ def call(body) {
   body.delegate = args
   body()
   
-  //echo "$test"
-  
   // Loading jenkins jenkinsLibrary
   def lib = new utils.JenkinsLibrary()
-  //print env.CHANGE_ID
-  
-  
-  
-    
+  def repo = "ssh://git@172.19.0.77:29418/source/${}.git"
+
     node(args.label)
     {
       
       echo "$args.clone_repos"
-      echo "$test"
+      
       step([$class: 'WsCleanup'])
 
       stage ('Clone')
