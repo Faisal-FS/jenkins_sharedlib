@@ -7,14 +7,14 @@ def call(body) {
   body.delegate = args
   body()
   
-  def env = System.getenv()
-  print env
+  
   // Loading jenkins jenkinsLibrary
   def lib = new utils.JenkinsLibrary()
   //print env.CHANGE_ID
   node ('master')
   {
-    sh "echo $WORKSPACE" 
+    def env = System.getenv()
+    print env
   }
   
   
