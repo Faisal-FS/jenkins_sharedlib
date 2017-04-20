@@ -7,7 +7,7 @@ def call(body) {
   body.delegate = args
   body()
   
-  echo "$GIT_BRANCH"
+  echo "$JOB_NAME"
   
   // Loading jenkins jenkinsLibrary
   def lib = new utils.JenkinsLibrary()
