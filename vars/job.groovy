@@ -7,8 +7,6 @@ def call(body) {
   body.delegate = args
   body()
   
-  print $test
-  
   // Loading jenkins jenkinsLibrary
   def lib = new utils.JenkinsLibrary()
   //print env.CHANGE_ID
