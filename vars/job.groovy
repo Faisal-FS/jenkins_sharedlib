@@ -19,7 +19,7 @@ def call(body) {
     node(args.label)
     {
       
-      echo "$args.project"
+      echo "$args.clone_repos"
       echo "$test"
       step([$class: 'WsCleanup'])
 
