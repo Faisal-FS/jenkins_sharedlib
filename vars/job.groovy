@@ -13,6 +13,7 @@ def call(body) {
   def lib = new utils.JenkinsLibrary()
   //print env.CHANGE_ID
   
+  print agrs.project
   
     
     node(args.label)
