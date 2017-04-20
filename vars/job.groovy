@@ -14,7 +14,7 @@ def call(body) {
   node ('master')
   {
     
-    sh 'printenv'
+    sh 'echo $GIT_HOME'
   }
   
   withEnv(['PROJECT=GIT_REPO']) {
