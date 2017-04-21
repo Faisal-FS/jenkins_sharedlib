@@ -11,7 +11,7 @@ def call(body) {
   def lib = new utils.JenkinsLibrary()
   
   def repo = "ssh://git@172.19.0.77:29418/source/${args.clone_repos}.git"
-  print repo
+  
     node(args.label)
     {
       
@@ -21,7 +21,7 @@ def call(body) {
 
       stage ('Clone')
       {
-          git credentialsId: 'jenkins', url: 'ssh://git@172.19.0.77:29418/source/ats.git'
+          git credentialsId: 'jenkins', url: repo
       }
 
       def value = lib.countStages(args)
