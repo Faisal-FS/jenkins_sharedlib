@@ -9,8 +9,9 @@ def call(body) {
   
   // Loading jenkins jenkinsLibrary
   def lib = new utils.JenkinsLibrary()
-  def repo = "ssh://git@172.19.0.77:29418/source/${}.git"
-
+  def testing = 123
+  def repo = "ssh://git@172.19.0.77:29418/source/${testing}.git"
+  print repo
     node(args.label)
     {
       
