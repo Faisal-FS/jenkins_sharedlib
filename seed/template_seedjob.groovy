@@ -74,7 +74,7 @@ new File("$projectRoot/alfred/pipelines").eachFile()
         if(config.job.pipeline_type == "on-demand")
         {
             // Parsing Ondemand variables
-            def ondemand_string = cofig.job.ondemand_variables
+            def ondemand_string = config.job.ondemand_variables
             def ondemand_array = ondemand_string.split(',')
             parameters
             {
