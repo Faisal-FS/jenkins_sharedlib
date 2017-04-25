@@ -1,13 +1,7 @@
-#!groovy
+ #!groovy
 
 // Get all contents of Alfred enabled list
 def alfred_list = readFileFromWorkspace('alfred_enabled.list')
-@Grab(group='org.apache.commons', module='commons-io', version='1.3.2')
-
-def filer = readFileFromWorkspace('config.cfg')
-def config = new ConfigSlurper().parse(filer)
-print config.sourceurl
-
 String[] split_file = alfred_list.split(System.getProperty("line.separator"));
 def alfredRepo = "ssh://git@code.xgrid.co:29418/source/alfred.git"
 def branch_map = [:]
@@ -63,9 +57,8 @@ for ( project in branch_map.keySet() )
         {
             dsl
             {
-                external('seed/template_seedjob.groovy')
+                external('groovy_scripts/template_seedjob.groovy')
             }
         }
     }
 }
-
