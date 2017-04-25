@@ -3,6 +3,8 @@
 @Grab(group='org.apache.commons', module='commons-io', version='1.3.2')
 def sout = new StringBuilder(), serr= new StringBuilder()
 
+print "hello there muneeb"
+
 def projectRoot = WORKSPACE + "/$PROJECT/"
 def clone = "git clone $PROJECTURL".execute(null, new File(WORKSPACE + "/"))
 clone.consumeProcessOutput(sout, serr)
