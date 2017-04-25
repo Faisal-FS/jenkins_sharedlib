@@ -39,43 +39,58 @@ new File("$projectRoot/alfred/pipelines").eachFile()
     {
         // Defines number of days to keep logs Default: 30 days
         logRotator(30,-1,-1,-1)
-
+        // Common pipeline code for all type of pipelines
+        definition
+        {
+            cpsScm
+            {
+                scm
+                {
+                    git
+                    {
+                        branch(BRANCH)
+                        remote
+                        {
+                            credentials('jenkins')
+                            url(PROJECTURL)
+                        }
+                    }
+                }
+                // Adding configfile path to be used by the pipeline
+                scriptPath("alfred/pipelines/" + org.apache.commons.io.FilenameUtils.getBaseName(file.name))
+            }
+        }
         // Code chuck for periodic pipelines
         if( config.job.pipeline_type == "periodic" )
         {
-            definition
-            {
-                cpsScm
-                {
-                    scm
-                    {
-                        git
-                        {
-                            branch(BRANCH)
-                            remote
-                            {
-                                credentials('jenkins')
-                                url(PROJECTURL)
-                            }
-                        }
-                    }
-                    // Adding configfile path to be used by the pipeline
-                    scriptPath("alfred/pipelines/" + org.apache.commons.io.FilenameUtils.getBaseName(file.name))
-                }
-            }
-
             // Defining pipeline triggers
             triggers
             {
                 cron(config.job.schedule)
             }
 
-            // Post Build Cleanup
-            publishers
+        }
+        // Code chuck for ondemand pipelines
+        if(config.job.pipeline_type == "on-demand")
+        {
+            // Parsing Ondemand variables
+            def ondemand_string = cofig.job.ondemand_variables
+            def ondemand_array = ondemand_string.split(',')
+            parameters
             {
-                wsCleanup()
+                // Iterating over ondemand variables to be used
+                for (String value:ondemand_array)
+                {
+                    def ondemand_var = value.split(':')
+                    // Creating ondemand parameter list for Alfred with default values
+                    stringParam(ondemand_var[0],ondemand_var[1])
+                }
             }
+        }
+        // Post Build Cleanup
+        publishers
+        {
+            wsCleanup()
         }
     }
 }
-
