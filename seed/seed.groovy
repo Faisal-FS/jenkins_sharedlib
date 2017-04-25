@@ -1,4 +1,4 @@
- #!groovy
+#!groovy
 
 // Get all contents of Alfred enabled list
 def alfred_list = readFileFromWorkspace('alfred_enabled.list')
