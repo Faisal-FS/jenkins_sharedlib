@@ -83,7 +83,7 @@ new File("$projectRoot/alfred/pipelines").eachFile()
                 {
                     def ondemand_var = value.split(':')
                     // Creating ondemand parameter list for Alfred with default values
-                    stringParam(ondemand_var[0],ondemand_var[1])
+                    stringParam(ondemand_var[0],ondemand_var[1],"")
                 }
             }
         }
