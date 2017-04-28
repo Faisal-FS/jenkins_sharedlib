@@ -38,18 +38,25 @@ def stag(def iter, def args)
 def create_stages(def name, def command)
 {   
 
-   stage ("$name")
+   try
    {
-      sh "$command"     
-   } 
+      
+      stage ("$name")
+      {
+         sh "$command"     
+      }
+   } catch (e)
+   {
+      lib.archive_artifacts(args)
+      throw e  
+   }
 }
 
-def archive(def args)
+def archive_artifacts(def args)
 {
-   echo "Alarm Alarm"
+   echo "Archiving Artifacts ..."
    // Artifacts to be archived for Alfred Master
    archiveArtifacts allowEmptyArchive: true, artifacts: args.artifacts
 }
-
 
 return this;
