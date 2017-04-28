@@ -43,4 +43,13 @@ def create_stages(def name, def command)
       sh "$command"     
    } 
 }
+
+def archive()
+{
+   echo "Alarm Alarm"
+   // Artifacts to be archived for Alfred Master
+   archiveArtifacts allowEmptyArchive: true, artifacts: args.artifacts
+}
+
+
 return this;
