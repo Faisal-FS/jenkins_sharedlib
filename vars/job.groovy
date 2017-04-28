@@ -27,7 +27,7 @@ def call(body) {
          git credentialsId: 'jenkins', url: repourl
       }
     } catch (e){
-        lib.archive()
+        lib.archive(args)
     }
     // Count of total stages found in jenkinsfile
     def total_stages = lib.countStages(args)
@@ -37,6 +37,6 @@ def call(body) {
     {
       lib.prepareStages(iter,args)
     }
-    lib.archive()
+    lib.archive(args)
   }
 }
