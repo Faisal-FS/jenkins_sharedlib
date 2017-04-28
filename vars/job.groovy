@@ -37,7 +37,7 @@ def call(body) {
     // Dynamically creating stages
     for(int iter = 0; iter<total_stages; iter++)
     {
-      lib.prepareStages(iter,args)
+      lib.stag(iter,args)
     }
     lib.archive_artifacts(args)
   }
