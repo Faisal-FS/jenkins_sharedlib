@@ -44,7 +44,7 @@ def create_stages(def name, def command)
    } 
 }
 
-def archive()
+def archive(def args)
 {
    echo "Alarm Alarm"
    // Artifacts to be archived for Alfred Master
