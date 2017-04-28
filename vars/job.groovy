@@ -28,6 +28,7 @@ def call(body) {
       }
     } catch (e){
         lib.archive(args)
+       throw e
     }
     // Count of total stages found in jenkinsfile
     def total_stages = lib.countStages(args)
