@@ -47,7 +47,7 @@ def create_stages(def name, def command)
       }
    } catch (e)
    {
-      lib.archive_artifacts(args)
+      archive_artifacts(args)
       throw e  
    }
 }
