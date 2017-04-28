@@ -34,8 +34,10 @@ def call(body) {
     {
       lib.prepareStages(iter,args)
     }
-
-    // Artifacts to be archived for Alfred Master
-    archiveArtifacts allowEmptyArchive: true, artifacts: args.artifacts
+    catchError {
+      echo "Alarm Alarm"
+      // Artifacts to be archived for Alfred Master
+      archiveArtifacts allowEmptyArchive: true, artifacts: args.artifacts
+    }
   }
 }
