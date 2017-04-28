@@ -27,10 +27,8 @@ def call(body) {
          git credentialsId: 'jenkins', url: repourl
       }
     } catch (e){
-      echo "alarm!"
-      throw e 
+        lib.archive()
     }
-
     // Count of total stages found in jenkinsfile
     def total_stages = lib.countStages(args)
 
@@ -39,10 +37,6 @@ def call(body) {
     {
       lib.prepareStages(iter,args)
     }
-    catchError {
-      echo "Alarm Alarm"
-      // Artifacts to be archived for Alfred Master
-      archiveArtifacts allowEmptyArchive: true, artifacts: args.artifacts
-    }
+    lib.archive()
   }
 }
