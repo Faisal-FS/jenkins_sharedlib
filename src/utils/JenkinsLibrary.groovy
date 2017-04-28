@@ -31,11 +31,11 @@ def stag(def iter, def args)
    def cmd = li[iter]
    def (fullstage, command) = cmd.split('=')
    def (key, stage_name) = fullstage.split('_') 
-   create_stages(stage_name,command)  
+   create_stages(stage_name,command,args)  
 }
 
 //@NonCPS 
-def create_stages(def name, def command)
+def create_stages(def name, def command, def args)
 {   
 
    try
