@@ -12,7 +12,7 @@ def call(body) {
   def lib = new utils.JenkinsLibrary()
 
   // Repo to clone for Alfred
-  def repourl = "ssh://git@172.19.07:29418/source/${args.clone_repos}.git"
+  def repourl = "ssh://git@172.19.0.77:29418/source/${args.clone_repos}.git"
 
   // Specifies the label which executes commands enclosed inside
   node(args.label)
