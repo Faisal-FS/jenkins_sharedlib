@@ -27,7 +27,8 @@ def call(body) {
          git credentialsId: 'jenkins', url: repourl
       }
     } catch (e){
-     throw e 
+      echo "alarm!"
+      throw e 
     }
 
     // Count of total stages found in jenkinsfile
