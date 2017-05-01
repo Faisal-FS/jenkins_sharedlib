@@ -40,9 +40,8 @@ def call(body) {
       }
       catch (err) {
         lib.archive_artifacts(args)
-        currentBuild.result = 'UNSTABLE'
-        return
-        //error("Pipeline failed")
+        //return
+        error("Pipeline failed")
         //break
         //throw err
       }
