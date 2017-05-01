@@ -41,15 +41,10 @@ def call(body) {
       }
       catch (err) {
         lib.archive_artifacts(args)
-        throw err
+        //throw err
       }
     }
     
-    post {
-      failure{
-       echo "this failed" 
-      }
-    }
     //lib.archive_artifacts(args)
   }
 }
