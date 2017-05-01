@@ -37,19 +37,10 @@ def stag(def iter, def args)
 //@NonCPS 
 def create_stages(def name, def command, def args)
 {   
-
-   try
-   {
-      
       stage ("$name")
       {
          sh "$command"     
       }
-   } catch (e)
-   {
-      archive_artifacts(args)
-      throw e  
-   }
 }
 
 def archive_artifacts(def args)
