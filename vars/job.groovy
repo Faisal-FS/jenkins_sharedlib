@@ -41,6 +41,7 @@ def call(body) {
       }
       catch (err) {
         lib.archive_artifacts(args)
+        break
         //throw err
       }
     }
