@@ -47,6 +47,14 @@ def call(body) {
       }
     }
     
+    pipeline
+    {
+      always {
+      echo "this is doone"
+    }
+    }
+   
+    
     //lib.archive_artifacts(args)
   }
 }
