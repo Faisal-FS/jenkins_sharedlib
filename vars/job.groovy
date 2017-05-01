@@ -41,6 +41,7 @@ def call(body) {
       }
       catch (err) {
         lib.archive_artifacts(args)
+        currentBuild.result = 'FAILURE'
         break
         //throw err
       }
