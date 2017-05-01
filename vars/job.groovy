@@ -41,7 +41,7 @@ def call(body) {
       catch (err) {
         lib.archive_artifacts(args)
         currentBuild.result = 'FAILURE'
-        error(err)
+        error("Pipeline failed")
         //break
         //throw err
       }
