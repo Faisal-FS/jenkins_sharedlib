@@ -7,7 +7,8 @@ def call(body) {
   body.resolveStrategy = Closure.DELEGATE_FIRST
   body.delegate = args
   body()
-
+  pipeline
+    {
   // Loading jenkinsLibrary
   def lib = new utils.JenkinsLibrary()
 
@@ -47,9 +48,7 @@ def call(body) {
       }
     }
     
-    pipeline
-    {
-      agent any
+    
       post{
           always {
           echo "this is doone"
