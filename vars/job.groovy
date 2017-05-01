@@ -49,9 +49,12 @@ def call(body) {
     
     pipeline
     {
-      always {
-      echo "this is doone"
-    }
+      agent any
+      post{
+          always {
+          echo "this is doone"
+        }
+      }
     }
    
     
