@@ -27,10 +27,6 @@ def call(body) {
       }
     // Count of total stages found in jenkinsfile
     def total_stages = lib.countStages(args)
-    
-    sh 'mkdir logs/'
-    
-    sh 'touch logs/testin'
 
     // Dynamically creating stages
     for(int iter = 0; iter<total_stages; iter++)
@@ -40,14 +36,9 @@ def call(body) {
       }
       catch (err) {
         lib.archive_artifacts(args)
-        //return
         error("Pipeline failed")
-        //break
-        //throw err
       }
     }
-   
-    
-    //lib.archive_artifacts(args)
+   lib.archive_artifacts(args)
   }
 }
