@@ -21,16 +21,11 @@ def call(body) {
     step([$class: 'WsCleanup'])
 
     // Clone stage to fetch latest repository to be consumed by the pipeline
-   try {
     
       stage ('Clone')
       {
          git credentialsId: 'jenkins', url: repourl
       }
-    } catch (e){
-        lib.archive_artifacts(args)
-       throw e
-    }
     // Count of total stages found in jenkinsfile
     def total_stages = lib.countStages(args)
     
@@ -41,8 +36,20 @@ def call(body) {
     // Dynamically creating stages
     for(int iter = 0; iter<total_stages; iter++)
     {
-      lib.stag(iter,args)
+      try { 
+        lib.stag(iter,args)
+      }
+      catch (err) {
+        lib.archive_artifacts(args)
+        throw err
+      }
     }
-    lib.archive_artifacts(args)
+    
+    post {
+      failure{
+       echo "this failed" 
+      }
+    }
+    //lib.archive_artifacts(args)
   }
 }
