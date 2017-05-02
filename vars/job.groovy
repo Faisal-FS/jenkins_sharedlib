@@ -35,10 +35,10 @@ def call(body) {
         lib.stag(iter,args)
       }
       catch (err) {
-        lib.archive_artifacts(args)
+        lib.archive_artifacts(args.artifacts)
         error("Pipeline failed")
       }
     }
-   lib.archive_artifacts(args)
+   lib.archive_artifacts(args.artifacts)
   }
 }
