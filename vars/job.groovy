@@ -31,13 +31,13 @@ def call(body) {
     // Dynamically creating stages
     for(int iter = 0; iter<total_stages; iter++)
     {
-      try { 
+      //try { 
         lib.stag(iter,args)
-      }
-      catch (err) {
-        lib.archive_artifacts(args.artifacts)
-        error("Pipeline failed")
-      }
+      //}
+      //catch (err) {
+      //  lib.archive_artifacts(args.artifacts)
+      //  error("Pipeline failed")
+     // }
     }
    lib.archive_artifacts(args.artifacts)
   }
