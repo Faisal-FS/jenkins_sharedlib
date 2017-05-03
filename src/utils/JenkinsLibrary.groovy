@@ -45,9 +45,10 @@ def create_stages(def name, def command)
 
 def archive_artifacts(def dir)
 {
-   echo "Pipeline Ended/Failed"
+   //echo "Pipeline Ended/Failed"
    // Artifacts to be archived for Alfred Master
    archiveArtifacts allowEmptyArchive: true, artifacts: dir
 }
 
 return this;
+;
