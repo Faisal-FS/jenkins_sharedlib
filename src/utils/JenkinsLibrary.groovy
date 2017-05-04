@@ -62,12 +62,14 @@ def prepareStages(def iter, def args)
 // Parameters : name of the stage, command to run in stage
 // Return     : None
 // ***********************************************************************
-def createStages(def stage_name, def command)
-{
-  stage ("$stage_name")
-  {
-    sh "$command"
-  }
+
+//@NonCPS 
+def createStages(def name, def command)
+{   
+      stage ("$name")
+      {
+         sh "$command"     
+      }
 }
 
 //************************************************************************
