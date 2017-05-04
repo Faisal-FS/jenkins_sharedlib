@@ -33,14 +33,14 @@ def call(body) {
     {
       try 
       { 
-        lib.prepareStages(iter,args)
+        lib.stag(iter,args)
       }
       catch (Exception err) 
       {
-        lib.archiveArtifacts(args.artifacts)
+        lib.archive_Artifacts(args.artifacts)
         error("Pipeline failed")
       }
     }
-   lib.archiveArtifacts(args.artifacts)
+   lib.archive_Artifacts(args.artifacts)
   }
 }
