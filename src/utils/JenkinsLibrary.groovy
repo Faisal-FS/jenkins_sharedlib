@@ -43,7 +43,7 @@ def create_stages(def name, def command)
       }
 }
 
-def archive_artifacts(def dir)
+def archive_Artifacts(def dir)
 {
    //echo "Pipeline Ended/Failed"
    // Artifacts to be archived for Alfred Master
