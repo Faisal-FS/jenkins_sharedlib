@@ -2,29 +2,15 @@ package utils;
 
 import java.nio.charset.StandardCharsets
 
-//************************************************************************
-// Function   : countStages
-// Purpose    : count the number of stages present inside the jenkinsfile
-// Usage      : countStages(jenkinfile config)
-// Parameters : contents of jenkinsfile
-// Return     : number of stages
-// ***********************************************************************
-@NonCPS
+@NonCPS 
 def countStages(def args)
 {
-   def count = 0
+   def count = 0  
    def li = stageList(args)
    count = li.size()
    return count;
 }
 
-//************************************************************************
-// Function   : stageList
-// Purpose    : convert jenkinsfile contents into a list
-// Usage      : stageList(jenkinfile config)
-// Parameters : contents of jenkinsfile
-// Return     : list of jenkinsfile data
-// ***********************************************************************
 @NonCPS
 def stageList(def args)
 {
@@ -38,33 +24,18 @@ def stageList(def args)
    return list;
 }
 
-//************************************************************************
-// Function   : prepareStages
-// Purpose    : calls a function that creates stages using a list
-// Usage      : prepareStages(number,config)
-// Parameters : stage number, and jenkinsfile data
-// Return     : None
-// ***********************************************************************
-@NonCPS
-def prepareStages(def iter, def args)
+@NonCPS 
+def stag(def iter, def args)
 {
    def li = stageList(args)
    def cmd = li[iter]
    def (fullstage, command) = cmd.split('=')
-   def (key, stage_name) = fullstage.split('_')
-   createStages(stage_name,command)
+   def (key, stage_name) = fullstage.split('_') 
+   create_stages(stage_name,command)  
 }
 
-//************************************************************************
-// Function   : createStages
-// Purpose    : creating stages dynamically and excuting the shell command
-// Usage      : createStages(stage_name,command)
-// Parameters : name of the stage, command to run in stage
-// Return     : None
-// ***********************************************************************
-
 //@NonCPS 
-def createStages(def name, def command)
+def create_stages(def name, def command)
 {   
       stage ("$name")
       {
@@ -72,17 +43,12 @@ def createStages(def name, def command)
       }
 }
 
-//************************************************************************
-// Function   : archiveArtifacts
-// Purpose    : archives artifacts on to Alfred master
-// Usage      : archiveArtifacts(dir)
-// Parameters : dir for artifacts specified in config file
-// Return     : None
-// ***********************************************************************
-def archiveArtifacts(def dir)
+def archive_artifacts(def dir)
 {
+   //echo "Pipeline Ended/Failed"
    // Artifacts to be archived for Alfred Master
    archiveArtifacts allowEmptyArchive: true, artifacts: dir
 }
+
 return this;
 ;
