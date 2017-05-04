@@ -7,6 +7,7 @@ def call(body) {
   body.resolveStrategy = Closure.DELEGATE_FIRST
   body.delegate = args
   body()
+
   // Loading jenkinsLibrary
   def lib = new utils.JenkinsLibrary()
 
@@ -20,27 +21,29 @@ def call(body) {
     step([$class: 'WsCleanup'])
 
     // Clone stage to fetch latest repository to be consumed by the pipeline
-    
-      stage ('Clone')
-      {
-         git credentialsId: 'jenkins', url: repourl
-      }
+    stage ('Clone')
+    {
+        git credentialsId: 'jenkins', url: repourl
+    }
+
     // Count of total stages found in jenkinsfile
     def total_stages = lib.countStages(args)
 
     // Dynamically creating stages
     for(int iter = 0; iter<total_stages; iter++)
     {
-      try 
-      { 
-        lib.stag(iter,args)
-      }
-      catch (Exception err) 
+      try
       {
-        lib.archive_Artifacts(args.artifacts)
-        error("Pipeline failed")
+        lib.prepareStages(iter,args)
+      }
+      catch (err)
+      {
+        lib.archiveArtifacts(args.artifacts)
+        error("Pipeline failed! Exiting ......")
       }
     }
-   lib.archive_Artifacts(args.artifacts)
+
+    // Artifacts to be archived for Alfred Master
+    lib.archiveArtifacts(args.artifacts)
   }
 }
