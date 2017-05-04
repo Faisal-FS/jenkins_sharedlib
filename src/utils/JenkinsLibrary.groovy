@@ -77,7 +77,7 @@ def createStages(def stage_name, def command)
 // Parameters : dir for artifacts specified in config file
 // Return     : None
 // ***********************************************************************
-def archiveArtifacts(def dir)
+def archive_artifacts(def dir)
 {
    // Artifacts to be archived for Alfred Master
    archiveArtifacts allowEmptyArchive: true, artifacts: dir
