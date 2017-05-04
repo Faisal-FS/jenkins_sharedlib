@@ -25,7 +25,7 @@ def stageList(def args)
 }
 
 @NonCPS 
-def prepareStages(def iter, def args)
+def stag(def iter, def args)
 {
    def li = stageList(args)
    def cmd = li[iter]
@@ -43,7 +43,7 @@ def create_stages(def name, def command)
       }
 }
 
-def archiveArtifacts(def dir)
+def archive_artifacts(def dir)
 {
    //echo "Pipeline Ended/Failed"
    // Artifacts to be archived for Alfred Master
