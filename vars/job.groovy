@@ -37,10 +37,10 @@ def call(body) {
       }
       catch (Exception err) 
       {
-        lib.archive_artifacts(args.artifacts)
+        lib.archiveArtifacts(args.artifacts)
         error("Pipeline failed")
       }
     }
-   lib.archive_artifacts(args.artifacts)
+   lib.archiveArtifacts(args.artifacts)
   }
 }
