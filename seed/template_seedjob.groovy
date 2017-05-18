@@ -75,13 +75,13 @@ new File("$projectRoot/alfred/pipelines").eachFile()
         {
             // Parsing Ondemand variables
             def ondemand_string = config.job.ondemand_variables
-            def ondemand_array = ondemand_string.split(',')
+            def ondemand_array = ondemand_string.replaceAll("\\s","").split(';')
             parameters
             {
                 // Iterating over ondemand variables to be used
                 for (String value:ondemand_array)
                 {
-                    def ondemand_var = value.split(':')
+                    def ondemand_var = value.split('=')
                     // Creating ondemand parameter list for Alfred with default values
                     stringParam(ondemand_var[0],ondemand_var[1],"")
                 }
