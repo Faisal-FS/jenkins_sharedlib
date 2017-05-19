@@ -1,3 +1,3 @@
-ats master ssh://git@code.xgrid.co:29418/source/ats.git alij@xgrid.co 
-
-
+ats master https://github.com/TeamXgrid/ats.git cavium-team@xgrid.co
+kts master https://github.com/TeamXgrid/kts.git cavium-team@xgrid.co
+hts master https://github.com/TeamXgrid/hts.git cavium-team@xgrid.co
