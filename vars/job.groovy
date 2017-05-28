@@ -38,12 +38,12 @@ def call(body) {
       }
       catch (err)
       {
-        lib.archive_artifacts(args.artifacts)
+        lib.postPipeline(args,"FAILED")
         error("Pipeline failed! Exiting ......")
       }
     }
 
-    // Artifacts to be archived for Alfred Master
-    lib.archive_artifacts(args.artifacts)
+    // Post pipeline steps required for Alfred
+    lib.postPipeline(args,currentBuild.result)
   }
 }
