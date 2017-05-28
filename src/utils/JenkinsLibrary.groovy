@@ -103,7 +103,7 @@ def emailAlert(String build_result,owners)
                 "--\n" +
                 "Jenkins CI"
 
-    email body: "$body", subject: "$subject", to: "$owners"
+    mail body: "$body", subject: "$subject", to: "$owners"
 }
 return this;
 ;
