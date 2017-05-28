@@ -71,9 +71,9 @@ def createStages(def stage_name, def command)
 }
 
 //************************************************************************
-// Function   : archiveArtifacts
+// Function   : archive_artifacts
 // Purpose    : archives artifacts on to Alfred master
-// Usage      : archiveArtifacts(dir)
+// Usage      : archive_artifacts(dir)
 // Parameters : dir for artifacts specified in config file
 // Return     : None
 // ***********************************************************************
@@ -81,6 +81,29 @@ def archive_artifacts(def dir)
 {
    // Artifacts to be archived for Alfred Master
    archiveArtifacts allowEmptyArchive: true, artifacts: dir
+}
+
+def postPipeline(def args, String buildStatus)
+{
+  archive_artifacts(args.artifacts)
+  emailAlert(buildStatus, args.email)
+}
+
+def emailAlert(String build_result,owners)
+{
+    echo "$build_result"
+    def subject = "[Alfred] New build for $JOB_NAME (# $BUILD_NUMBER)  - $build_result!"
+    def body = "Hi,\n" +
+        "build and testing completed for ${JOB_NAME}, build # ${BUILD_NUMBER}.\n" +
+                "\n" +
+                "Build status is: ${build_result}\n" +
+                "\n" +
+                "Check the console output at $BUILD_URL for more information.\n" +
+                "\n" +
+                "--\n" +
+                "Jenkins CI"
+
+    emailext body: "$body", subject: "$subject", to: "$owners"
 }
 return this;
 ;
