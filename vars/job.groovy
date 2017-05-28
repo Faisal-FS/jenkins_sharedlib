@@ -44,6 +44,6 @@ def call(body) {
     }
 
     // Post pipeline steps required for Alfred
-    lib.postPipeline(args,"SUCCESS")
+    lib.postPipeline(args,"PASSED")
   }
 }
