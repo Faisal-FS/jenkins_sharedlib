@@ -10,6 +10,7 @@ def alfred_list = readFileFromWorkspace('alfred_enabled.list')
 String[] split_file = alfred_list.split(System.getProperty("line.separator"));
 def alfredRepo = config.git_url + "alfred.git"
 def branch_map = [:]
+def url_map = [:]
 
 // Creating a map for repos against branches
 for (def line:split_file)
@@ -18,9 +19,8 @@ for (def line:split_file)
   repo = line_split.getAt(0)
   branch = line_split.getAt(1)
   url = line_split.getAt(2)
-  //url_map[repo] = url
+  url_map[repo] = url
   branch_map[repo] = branch
-  git_map[repo] = url
 }
 
 // Iterating over each repo inside the map
@@ -36,7 +36,7 @@ for ( project in branch_map.keySet() )
         environmentVariables
         {
             env('PROJECT', project)
-            env('PROJECTURL', git_map[project] + "${project}.git")
+            env('PROJECTURL', url_map[project] + "${project}.git")
             env('BRANCH', branch_map[project])
         }
 
