@@ -17,7 +17,9 @@ for (def line:split_file)
   String[] line_split = line.split(" ")
   repo = line_split.getAt(0)
   branch = line_split.getAt(1)
+  url = line_split.getAt(2)
   branch_map[repo] = branch
+  url_map[repo] = url
 }
 
 // Iterating over each repo inside the map
@@ -33,7 +35,7 @@ for ( project in branch_map.keySet() )
         environmentVariables
         {
             env('PROJECT', project)
-            env('PROJECTURL', config.git_url + "${project}.git")
+            env('PROJECTURL', url_map[project] + "${project}.git")
             env('BRANCH', branch_map[project])
         }
 
