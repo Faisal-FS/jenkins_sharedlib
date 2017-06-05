@@ -36,7 +36,7 @@ for ( project in branch_map.keySet() )
         environmentVariables
         {
             env('PROJECT', project)
-            env('PROJECTURL', url_map[project] + "${project}.git")
+            env('PROJECTURL', url_map[project])
             env('BRANCH', branch_map[project])
         }
 
