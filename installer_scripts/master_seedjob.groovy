@@ -19,6 +19,7 @@ for (def line:split_file)
   branch = line_split.getAt(1)
   url = line_split.getAt(2)
   branch_map[repo] = branch
+  print url
   url_map[repo] = url
 }
 
