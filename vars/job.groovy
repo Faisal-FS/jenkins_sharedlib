@@ -15,7 +15,7 @@ def call(body) {
   def timeValue = 24
   if (args.timeout)
   {
-    timeValue=args.timeout.toInteger
+    timeValue=args.timeout.toInteger()
   }
 
   // Repo to clone for Alfred
