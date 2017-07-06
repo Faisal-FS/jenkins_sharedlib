@@ -101,19 +101,27 @@ def alfredInfo(def args)
 
 def emailAlert(String build_result,owners)
 {
-    echo "$build_result"
-    def subject = "[Alfred] New build for $JOB_NAME (# $BUILD_NUMBER)  - $build_result!"
-    def body = "Hi,\n" +
-        "build and testing completed for ${JOB_NAME}, build # ${BUILD_NUMBER}.\n" +
+   if (owners)
+  {
+    def subject = "[Alfred] $JOB_NAME (# $BUILD_NUMBER)  - $build_result!"
+    def body = "Hi Team,\n\n" +
+                "Pipeline: ${JOB_NAME}\n" +
                 "\n" +
-                "Build status is: ${build_result}\n" +
+                "Build number: ${BUILD_NUMBER}\n" +
                 "\n" +
-                "Check the console output at $BUILD_URL for more information.\n" +
+                "Build status: ${build_result}\n" +
+                "\n" +
+                "Console output: ${BUILD_URL}\n" +
                 "\n" +
                 "--\n" +
-                "Jenkins CI"
+                "Alfred"
 
     mail body: "$body", subject: "$subject", to: "$owners"
+  }
+  else
+  {
+    echo "No email Recipents Sepecified!"
+  }
 }
 return this;
 ;
