@@ -95,7 +95,7 @@ def alfredInfo(def args)
   echo "$args.artifacts"
   dir (args.artifacts)
   {
-    writeFile file: 'alfred.info', text: 'machine_arch = $args.machine_arch'
+    writeFile file: 'alfred.info', text: "machine_arch = $args.machine_arch"
   }
 }
 
