@@ -13,7 +13,8 @@ def call(body) {
 
   // Repo to clone for Alfred
   def repourl = "ssh://git@172.19.0.77:29418/source/${args.clone_repos}.git"
-
+timeout(time: 2, unit: 'DAYS') 
+  {
   // Specifies the label which executes commands enclosed inside
   node(args.label)
   {
@@ -45,5 +46,6 @@ def call(body) {
 
     // Post pipeline steps required for Alfred
     lib.postPipeline(args,"PASSED")
+  }
   }
 }
