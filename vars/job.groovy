@@ -13,7 +13,7 @@ def call(body) {
 
   // Repo to clone for Alfred
   def repourl = "ssh://git@172.19.0.77:29418/source/${args.clone_repos}.git"
-timeout(time: 2, unit: 'DAYS') 
+timeout(time: 2, unit: 'NANOSECONDS') 
   {
   // Specifies the label which executes commands enclosed inside
   node(args.label)
