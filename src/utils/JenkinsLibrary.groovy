@@ -85,8 +85,18 @@ def archive_artifacts(def dir)
 
 def postPipeline(def args, String buildStatus)
 {
+  alfredInfo(args)
   archive_artifacts(args.artifacts)
   emailAlert(buildStatus, args.email)
+}
+
+def alfredInfo(def args)
+{
+  echo "$args.artifacts"
+  dir (args.artifacts)
+  {
+    writeFile file: 'alfred.info', text: 'machine_arch = $args.machine_arch'
+  }
 }
 
 def emailAlert(String build_result,owners)
