@@ -5,6 +5,8 @@
 def cfg_file = readFileFromWorkspace('config.ini')
 def config = new ConfigSlurper().parse(cfg_file)
 
+print config.key
+
 // Get all contents of Alfred enabled list
 def alfred_list = readFileFromWorkspace('alfred_enabled.list')
 String[] split_file = alfred_list.split(System.getProperty("line.separator"));
