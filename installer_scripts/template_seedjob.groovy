@@ -94,7 +94,7 @@ new File("$projectRoot/alfred/pipelines").eachFile()
                         ondemand_des = ondemand_var[1].substring(ondemand_var[1].indexOf('(')+1,ondemand_var[1].indexOf(')'))
 
                         //Extracting only ondemand variable value without description
-                        ondemand_var[1] = ondemand_var[1].substring(0,ondemand_var[1].indexOf('('))
+                        ondemand_var[1] = ondemand_var[1].substring(0,ondemand_var[1].indexOf('(')).trim()
                     }
 
                     // Creating ondemand parameter list for Alfred with default values
