@@ -11,7 +11,7 @@ def call(body) {
   // Loading jenkinsLibrary
   def lib = new utils.JenkinsLibrary()
 
-  // Default timeout value
+  // Default timeout value is 24 hours
   def timeValue = 24
   if (args.timeout)
   {
@@ -21,15 +21,15 @@ def call(body) {
   // Repo to clone for Alfred
   def repourl = "ssh://git@172.19.0.77:29418/source/${args.clone_repos}.git"
 
-  // Enforce timeout for pipelines that are stuck waiting for executors 
-  timeout(time: 2, unit: 'DAYS') 
+  // Enforce timeout for pipelines that are stuck waiting for executors
+  timeout(time: 2, unit: 'DAYS')
   {
     // Specifies the label which executes commands enclosed inside
     node(args.label)
     {
-      // Enforcing pipeline timeout 
-      timeout (time: timeValue, unit: 'NANOSECONDS')
-      { 
+      // Enforcing pipeline timeout
+      timeout (time: timeValue, unit: 'HOURS')
+      {
         // Cleanup workspace at the start of the job
         step([$class: 'WsCleanup'])
 
@@ -52,8 +52,15 @@ def call(body) {
           catch (err)
           {
             lib.postPipeline(args,"FAILED")
+            if(args.clone_repos != 'carmos'){
+              lib.ticketGeneration(args)
+            }
             error("Pipeline failed! Exiting ......")
           }
+        }
+        if (args.downstream)
+        {
+          lib.triggerDownstream(args.downstream)
         }
 
         // Post pipeline steps required for Alfred
