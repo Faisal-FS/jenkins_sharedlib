@@ -75,15 +75,30 @@ new File("$projectRoot/alfred/pipelines").eachFile()
         {
             // Parsing Ondemand variables
             def ondemand_string = config.job.ondemand_variables
-            def ondemand_array = ondemand_string.replaceAll("\\s","").split(';')
+            def ondemand_array = ondemand_string.split(';')
             parameters
             {
                 // Iterating over ondemand variables to be used
                 for (String value:ondemand_array)
                 {
-                    def ondemand_var = value.split('=')
+                    def ondemand_des = ""
+
+                    // Ensuring ondemand variable is trimmed properly and split on first occurrence only
+                    def ondemand_var = value.trim().split('=',2)
+
+                    // Adding ondemand variable description
+                    if(ondemand_var[1].contains("("))
+                    {
+
+                        //Extracting ondemand variable description from the ondemand variable value
+                        ondemand_des = ondemand_var[1].substring(ondemand_var[1].indexOf('(')+1,ondemand_var[1].indexOf(')'))
+
+                        //Extracting only ondemand variable value without description
+                        ondemand_var[1] = ondemand_var[1].substring(0,ondemand_var[1].indexOf('(')).trim()
+                    }
+
                     // Creating ondemand parameter list for Alfred with default values
-                    stringParam(ondemand_var[0],ondemand_var[1],"")
+                    stringParam(ondemand_var[0],ondemand_var[1],ondemand_des)
                 }
             }
         }
