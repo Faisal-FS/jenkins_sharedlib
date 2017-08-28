@@ -51,11 +51,9 @@ def call(body) {
           }
           catch (err)
           {
-            print("failed pipeline")
-            print("name: "+args.clone_repos)
             lib.postPipeline(args,"FAILED")
             if(args.clone_repos != 'carmos'){
-              print("Generating ticket")
+              
               lib.ticketGeneration(args)
             }
             error("Pipeline failed! Exiting ......")
