@@ -81,6 +81,7 @@ def createStages(def stage_name, def command)
 @NonCPS
 def ticketGeneration(def args)
 {
+   print("inside ticket generation")
   def cfg_file = libraryResource 'alfred.ini'
   def config = new ConfigSlurper().parse(cfg_file)
   def bugzilla_server_ip = config.bugzilla_ip
