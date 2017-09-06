@@ -13,16 +13,28 @@ def call(body) {
 
   // Default timeout value is 24 hours
   def timeValue = 24
+  
+  // Default value 2 days
+  def timeStuckPipelines = 2
   if (args.timeout)
   {
     timeValue=args.timeout.toInteger()
   }
+  
+  if (args.timeoutStuckPipelines)
+  {
+    timeStuckPipelines=args.timeoutStuckPipelines.toInteger()
+  }
+
 
   // Repo to clone for Alfred
-  def repourl = "ssh://git@172.19.0.77:29418/source/${args.clone_repos}.git"
+  
+  def repourl = "git@bitbucket.org:faisal-fs/test-ats.git"
+
+  //def repourl = "ssh://git@172.19.0.77:29418/source/${args.clone_repos}.git"
 
   // Enforce timeout for pipelines that are stuck waiting for executors
-  timeout(time: 2, unit: 'DAYS')
+  timeout(time: timeStuckPipelines, unit: 'DAYS')
   {
     // Specifies the label which executes commands enclosed inside
     node(args.label)
