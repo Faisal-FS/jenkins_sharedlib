@@ -11,30 +11,28 @@ def call(body) {
   // Loading jenkinsLibrary
   def lib = new utils.JenkinsLibrary()
 
+
+  // Default value 2 days
+  def stuckPipelineTimeout = 2
+  if (args.stuckPipelineTimeout)
+  {
+    stuckPipelineTimeout=args.stuckPipelineTimeout.toInteger()
+  }
+
+
   // Default timeout value is 24 hours
   def timeValue = 24
-  
-  // Default value 2 days
-  def timeStuckPipelines = 2
   if (args.timeout)
   {
     timeValue=args.timeout.toInteger()
   }
-  
-  if (args.timeoutStuckPipelines)
-  {
-    timeStuckPipelines=args.timeoutStuckPipelines.toInteger()
-  }
 
 
   // Repo to clone for Alfred
-  
-  def repourl = "git@bitbucket.org:faisal-fs/test-ats.git"
-
-  //def repourl = "ssh://git@172.19.0.77:29418/source/${args.clone_repos}.git"
+  def repourl = "ssh://git@172.19.0.77:29418/source/${args.clone_repos}.git"
 
   // Enforce timeout for pipelines that are stuck waiting for executors
-  timeout(time: timeStuckPipelines, unit: 'DAYS')
+  timeout(time: stuckPipelineTimeout, unit: 'DAYS')
   {
     // Specifies the label which executes commands enclosed inside
     node(args.label)
@@ -65,7 +63,6 @@ def call(body) {
           {
             lib.postPipeline(args,"FAILED")
             if(args.clone_repos != 'carmos'){
-              
               lib.ticketGeneration(args)
             }
             error("Pipeline failed! Exiting ......")
