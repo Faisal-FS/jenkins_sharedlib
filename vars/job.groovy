@@ -62,7 +62,8 @@ def call(body) {
           catch (err)
           {
             lib.postPipeline(args,"FAILED")
-            if(args.clone_repos != 'carmos'){
+            if(args.clone_repos != 'carmos' || args.clone_repos != 'ats')
+            {
               lib.ticketGeneration(args)
             }
             error("Pipeline failed! Exiting ......")
