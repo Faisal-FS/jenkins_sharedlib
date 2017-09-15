@@ -61,7 +61,7 @@ def call(body) {
           {
             lib.postPipeline(args,"FAILED")
             // Checking if current repo is in the list
-            // of skipped repos for ticket generation
+            // of enabled repos for ticket generation
             if(ticketingEnabledRepos.contains(args.clone_repos))
             {
               lib.ticketGeneration(args)
