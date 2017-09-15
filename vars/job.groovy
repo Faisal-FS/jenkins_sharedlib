@@ -62,7 +62,6 @@ def call(body) {
           catch (err)
           {
             lib.postPipeline(args,"FAILED")
-            println("repo: "+args.clone_repos)
             if(skippedRepos.contains(args.clone_repos) == false)
             {
               lib.ticketGeneration(args)
