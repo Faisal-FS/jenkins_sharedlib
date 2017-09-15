@@ -19,14 +19,12 @@ def call(body) {
     stuckPipelineTimeout=args.stuckPipelineTimeout.toInteger()
   }
 
-
   // Default timeout value is 24 hours
   def timeValue = 24
   if (args.timeout)
   {
     timeValue=args.timeout.toInteger()
   }
-
 
   // Repo to clone for Alfred
   def repourl = "ssh://git@172.19.0.77:29418/source/${args.clone_repos}.git"
