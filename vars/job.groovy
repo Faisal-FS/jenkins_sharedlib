@@ -10,7 +10,7 @@ def call(body) {
 
   // Loading jenkinsLibrary
   def lib = new utils.JenkinsLibrary()
-  def skippedWorkstreams = ['carmos','ats']
+  def skippedRepos = ['carmos','ats']
 
   // Default value 2 days
   def stuckPipelineTimeout = 2
@@ -63,7 +63,7 @@ def call(body) {
           {
             lib.postPipeline(args,"FAILED")
             println("repo: "+args.clone_repos)
-            if(skippedWorkstreams.contains(args.clone_repos) == false)
+            if(skippedRepos.contains(args.clone_repos) == false)
             {
               lib.ticketGeneration(args)
             }
