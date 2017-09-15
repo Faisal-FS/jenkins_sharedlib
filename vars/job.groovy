@@ -63,7 +63,7 @@ def call(body) {
           {
             lib.postPipeline(args,"FAILED")
             println("repo: "+args.clone_repos)
-            if(skippedWorkstreams.contains(args.clone_repos) == False)
+            if(skippedWorkstreams.contains(args.clone_repos) == false)
             {
               lib.ticketGeneration(args)
             }
