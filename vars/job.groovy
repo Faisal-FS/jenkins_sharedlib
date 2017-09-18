@@ -10,6 +10,9 @@ def call(body) {
 
   // Loading jenkinsLibrary
   def lib = new utils.JenkinsLibrary()
+
+  // Repo to clone for Alfred
+  def repourl = "git@github.com:TeamXgrid/${args.clone_repos}.git"
   def ticketingEnabledRepos = ['hts','kts']
 
   // Default value 2 days
@@ -25,9 +28,6 @@ def call(body) {
   {
     timeValue=args.timeout.toInteger()
   }
-
-  // Repo to clone for Alfred
-  def repourl = "ssh://git@172.19.0.77:29418/source/${args.clone_repos}.git"
 
   // Enforce timeout for pipelines that are stuck waiting for executors
   timeout(time: stuckPipelineTimeout, unit: 'DAYS')
